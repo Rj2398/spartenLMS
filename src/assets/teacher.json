@@ -1,0 +1,248 @@
+{
+  "subjectData": [
+    {
+      "id" : "1",
+      "title": "Life Dream",
+      "lessons": 8,
+      "students": 25,
+      "completionRate": 0,
+      "completionCount": "0 / 480",
+      "quizScore": "0%",
+      "baselineAssessment": "0/25",
+      "summativeAssessment": "0/25",
+      "lastActive": "2 hours ago",
+      "progressWidth": "0%",
+      "link": "/teacher/class-detail"
+    },
+    {
+      "id" : "2",
+      "title": "Self-Awareness",
+      "lessons": 8,
+      "students": 25,
+      "completionRate": 70,
+      "completionCount": "340 / 480",
+      "quizScore": "84.2%",
+      "baselineAssessment": "8/25",
+      "summativeAssessment": "3/25",
+      "lastActive": "2 hours ago",
+      "progressWidth": "70%",
+      "link": "/teacher/class-detail"
+    },
+    {
+      "id" : "3",
+      "title": "Cognitive Construction",
+      "lessons": 8,
+      "students": 25,
+      "completionRate": 68,
+      "completionCount": "320 / 480",
+      "quizScore": "84.2%",
+      "baselineAssessment": "8/25",
+      "summativeAssessment": "3/25",
+      "lastActive": "2 hours ago",
+      "progressWidth": "68%",
+      "link": "/teacher/class-detail"
+    },
+    {
+      "id" : "4",
+      "title": "Coping",
+      "lessons": 8,
+      "students": 25,
+      "completionRate": 70,
+      "completionCount": "340 / 480",
+      "quizScore": "84.2%",
+      "baselineAssessment": "8/25",
+      "summativeAssessment": "3/25",
+      "lastActive": "2 hours ago",
+      "progressWidth": "68%",
+      "link": "/teacher/class-detail"
+    },
+    {
+      "id" : "5",
+      "title": "Interpersonal Relationships",
+      "lessons": 8,
+      "students": 25,
+      "completionRate": 100,
+      "completionCount": "480 / 480",
+      "quizScore": "84.2%",
+      "baselineAssessment": "25/25",
+      "summativeAssessment": "25/25",
+      "lastActive": "2 hours ago",
+      "progressWidth": "100%",
+      "link": "/teacher/class-detail"
+    }
+  ],
+
+  "courseData":[
+    {
+      "id" : 1,
+      "title": "Life Dream"
+    },
+    {
+      "id" : 2,
+      "title": "Self-Awareness"
+    },
+    {
+      "id" : 3,
+      "title": "Cognitive Construction"
+    },
+    {
+      "id" : 4,
+      "title": "Coping"
+    },
+    {
+      "id" : 5,
+      "title": "Interpersonal Relationships"
+    }
+  ],
+
+  "subjectListData":[
+    {
+      "id" : 11,
+      "title": "Lession 1"
+    },
+    {
+      "id" : 12,
+      "title": "Lession 2"
+    },
+    {
+      "id" : 13,
+      "title": "Lession 3"
+    },
+    {
+      "id" : 14,
+      "title": "Lession 4"
+    },
+    {
+      "id" : 15,
+      "title": "Lession 5"
+    }
+  ],
+
+  "StudentListData":[
+    {
+      "id" : 51,
+      "title": "Randy Baptista"
+    },
+    {
+      "id" : 52,
+      "title": "Martin Aminoff"
+    },
+    {
+      "id" : 53,
+      "title": "Talan Baptista"
+    },
+    {
+      "id" : 54,
+      "title": "James Siphron"
+    },
+    {
+      "id" : 55,
+      "title": "John Deo"
+    }
+  ],
+
+  "PrincipalStudent":[
+    {
+      "id": 1,
+      "studentName": "Emily Johnson",
+      "status": "Active",
+      "completionScore": "85%",
+      "avgScore": "92%",
+      "action": "View Details"
+    },
+    {
+      "id": 2,
+      "studentName": "Michael Chen",
+      "status": "Completed",
+      "completionScore": "100%",
+      "avgScore": "88%",
+      "action": "View Details"
+    },
+    {
+      "id": 3,
+      "studentName": "Sarah Williams",
+      "status": "In Progress",
+      "completionScore": "60%",
+      "avgScore": "76%",
+      "action": "View Details"
+    },
+    {
+      "id": 4,
+      "studentName": "David Rodriguez",
+      "status": "Active",
+      "completionScore": "75%",
+      "avgScore": "84%",
+      "action": "View Details"
+    },
+    {
+      "id": 5,
+      "studentName": "Jessica Kim",
+      "status": "On Hold",
+      "completionScore": "45%",
+      "avgScore": "79%",
+      "action": "View Details"
+    },
+    {
+      "id": 6,
+      "studentName": "Brian Thompson",
+      "status": "Active",
+      "completionScore": "90%",
+      "avgScore": "91%",
+      "action": "View Details"
+    }
+
+  ],
+  "ClassesPerformance" :[
+    {
+      "id": 1,
+      "courseName": "Life Dream",
+      "modules": 24,
+      "completionPercentage": "92.0%",
+      "progressWidth": "92.0%",
+      "averageScore": "88.5%",
+      "scoreColor": "#16A34A",
+      "viewDetailsLink": "/principal/class-detail"
+    },
+    {
+      "id": 2,
+      "courseName": "Self-Awareness",
+      "modules": 22,
+      "completionPercentage": "88.0%",
+      "progressWidth": "88.0%",
+      "averageScore": "91.2%",
+      "scoreColor": "#16A34A",
+      "viewDetailsLink": "/principal/class-detail"
+    },
+    {
+      "id": 3,
+      "courseName": "Cognitive Construction",
+      "modules": 30,
+      "completionPercentage": "95.0%",
+      "progressWidth": "95.0%",
+      "averageScore": "91.2%",
+      "scoreColor": "#16A34A",
+      "viewDetailsLink": "/principal/class-detail"
+    }
+  ],
+  "TeacherTrainingCom" : [
+    {
+      "id" :1,
+      "level" : "Ruby Credentials",
+      "completion" : "92.0%",
+      "badge" : "Earned",
+      "earnedClass" : "status",
+      "progressWidth": "92.0%"
+    },
+    {
+      "id" :2,
+      "level" : "Emerald Credentials",
+      "completion" : "40.0%",
+      "badge" : "In-progress",
+      "earnedClass" : "status review",
+      "progressWidth": "40.0%"
+    }
+  ]
+
+
+}
+

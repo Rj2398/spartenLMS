@@ -1,0 +1,27 @@
+.pdf-viewer-container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s ease;
+
+  }
+  
+  .pdf-viewer-container:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  }
+  
+  /* Add responsive behavior */
+  @media (max-width: 768px) {
+    .pdf-viewer-container {
+      padding: 12px;
+    }
+    
+    .pdf-viewer-container iframe {
+      height: 400px;
+    }
+  }
+
+
+
+
+
+
+

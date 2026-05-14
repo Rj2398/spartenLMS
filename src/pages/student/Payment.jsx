@@ -1,0 +1,238 @@
+import React, { useEffect, useState } from "react";
+import Pagination from "./Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllSubject,
+  paymentHistory,
+  paymentInitiate,
+} from "../../redux/slices/student/subjectSlice";
+
+const Payment = () => {
+  const dispatch = useDispatch();
+  const { allSubject } = useSelector((state) => state.subject);
+  const itemsPerPage = 5;
+
+  const [courseData, setcourseData] = useState([]);
+  const [selectedProgressSubject, setSelectedProgressSubject] = useState("");
+  const uniqueStatuses = [...new Set(courseData.map((item) => item.status))];
+
+  const [currentPage, setCurrentPage] = useState(() => {
+    // Get the last page from localStorage if exists, else 1
+    const savedPage = localStorage.getItem("currentPage");
+    return savedPage ? Number(savedPage) : 1;
+  });
+
+  useEffect(() => {
+    const handlePaymentFetch = async () => {
+      try {
+        const res = await dispatch(paymentHistory()).unwrap();
+
+        // Now 'res' is your actual data (the response from your API)
+        console.log("Payment Data:", res.data);
+
+        setcourseData(res.data);
+      } catch (error) {
+        // If the API returns a 400/500 error, it lands here
+        console.error("Payment Fetch Failed:", error);
+      }
+    };
+
+    handlePaymentFetch();
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllSubject());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setCurrentPage(currentPage);
+  }, []);
+
+  const filteredData = selectedProgressSubject
+    ? courseData.filter((item) => item.status === selectedProgressSubject)
+    : courseData;
+
+  const totalItems = filteredData?.length;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredData?.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  const makePaymentAction = async () => {
+    const subjectId = allSubject[0]?.id;
+
+    if (!subjectId) return;
+    try {
+      // .unwrap() is the key to catching errors in the component
+      const res = await dispatch(
+        paymentInitiate({ subject_id: subjectId })
+      ).unwrap();
+
+      const checkoutUrl = res?.data?.checkout_url;
+
+      if (checkoutUrl) {
+        window.open(checkoutUrl, "_blank", "noopener,noreferrer");
+      }
+      // You can now open your Stripe modal or redirect here
+    } catch (error) {
+      console.error("Payment Promise Rejected:", error);
+      // Handle the error (e.g., show a toast notification)
+    }
+  };
+
+  return (
+    <>
+      <div
+        className=""
+        style={{
+          padding: "20px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <h1 style={{ margin: "0", fontSize: "24px", fontWeight: "bold" }}>
+            Payments
+          </h1>
+          <span style={{ color: "#6b7280", fontSize: "14px" }}>
+            Track your payment status
+          </span>
+        </div>
+        <div style={{ marginTop: "20px" }}>
+          <h1
+            style={{
+              display: "inline-block",
+              backgroundColor: "#4126A8",
+              color: "#ffffff",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              fontSize: "16px",
+              fontWeight: "600",
+              cursor: "pointer",
+              textAlign: "center",
+              border: "none",
+              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+            }}
+            onClick={() => makePaymentAction()}
+          >
+            Pay Now
+          </h1>
+        </div>
+      </div>
+
+      <div className="my-subjects">
+        <div className="top-head">
+          <div className="top-head-in">
+            <h1 className="mb-0"> Payments History </h1>
+          </div>
+          <select
+            name="status"
+            className="ms-auto"
+            onChange={(e) => setSelectedProgressSubject(e.target.value)}
+          >
+            <option value="">Status</option>
+
+            {uniqueStatuses.map((status, index) => (
+              <option key={index} value={status}>
+                {status
+                  .replace(/_/g, " ")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="table-responsive">
+          <table>
+            <tr>
+              <th>Course</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Invoice</th>
+            </tr>
+            {currentItems.length === 0 ? (
+              <tr>
+                <td
+                  colSpan="4"
+                  style={{ textAlign: "center", padding: "20px" }}
+                >
+                  No records found
+                </td>
+              </tr>
+            ) : (
+              currentItems.map((item) => (
+                <tr className="lessons-list" key={item.id}>
+                  {/* Course Name */}
+                  <td>{item.course_name}</td>
+
+                  {/* Date */}
+                  <td>{item.date}</td>
+
+                  {/* Status */}
+                  <td>
+                    <div
+                      className="status"
+                      style={{
+                        backgroundColor:
+                          item.status === "completed"
+                            ? "#16a34a"
+                            : item.status === "failed"
+                            ? "#dc2626"
+                            : "#f59e0b",
+                        color: "#fff",
+                        padding: "4px 10px",
+                        borderRadius: "20px",
+                        display: "inline-block",
+                        fontSize: "12px",
+                      }}
+                    >
+                      {item.status
+                        .replace(/_/g, " ")
+                        .replace(/\b\w/g, (c) => c.toUpperCase())}
+                    </div>
+                  </td>
+
+                  {/* Invoice */}
+                  <td>
+                    {item.invoice && (
+                      <button
+                        style={{
+                          background: "#e5e7eb",
+                          border: "none",
+                          padding: "12px",
+                          borderRadius: "20px",
+                          fontSize: "15px",
+                          cursor: "pointer",
+                          color: "#4B5563",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                        }}
+                      >
+                        <img
+                          src="/images/subject-detail/download.png"
+                          style={{ width: "20px" }}
+                          alt="download"
+                        />
+                        Invoice
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))
+            )}
+          </table>
+        </div>
+      </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalItems={totalItems}
+        itemsPerPage={itemsPerPage}
+        onPageChange={setCurrentPage}
+        showResult={true}
+      />
+    </>
+  );
+};
+export default Payment;

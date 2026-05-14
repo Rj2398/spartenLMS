@@ -1,0 +1,333 @@
+{
+  "principalDashboard": {
+    "principalName": "Principal Johnson",
+    "schoolName": "Lincoln Elementary School",
+    "kpiSummary": {
+      "baseline_assessments": {
+        "title": "Baseline Assessments",
+        "percentage": 60,
+        "completed": 0,
+        "total": 15,
+        "description": "60 assessments completed"
+      },
+      "lesson_quiz_progress": {
+        "title": "Lesson Quiz Progress",
+        "percentage": 50,
+        "completed": 0,
+        "total": 15,
+        "description": "50 of quizzes completed"
+      },
+      "summative_assessments": {
+        "title": "Summative Assessments",
+        "percentage": 40,
+        "completed": 0,
+        "total": 15,
+        "description": "40 summative assessments completed"
+      },
+      "overAll_lesson_progress": {
+        "title": "Overall Lesson Progress",
+        "percentage": 50,
+        "completed": 0,
+        "total": 15,
+        "description": "50 of all lessons completed"
+      }
+    },
+    "classesOverview": {
+      "title": "All Classes",
+      "classes": [
+        {
+          "subject_id": 1,
+          "subject_name": "Life Dream",
+          "total_lesson": 6,
+          "completion_rate": "0",
+          "avg_quiz_score": null,
+          "baselineAssessment": "0/15",
+          "summativeAssessment": "0/15",
+          "last_activity": "2",
+          "detailsButtonText": "View Subject Details",
+          "total_student": 10,
+          "total_completion": 352,
+          "complete_completion": 0
+        },
+        {
+          "subject_id": 2,
+          "subject_name": "Self-Awareness",
+          "total_lesson": 6,
+          "completion_rate": "75",
+          "avg_quiz_score": "84.2",
+          "baselineAssessment": "12/15",
+          "summativeAssessment": "9/15",
+          "last_activity": "2",
+          "detailsButtonText": "View Subject Details",
+          "total_student": 10,
+          "total_completion": 352,
+          "complete_completion": 0
+        },
+        {
+          "subject_id": 3,
+          "subject_name": "Cognitive Construction",
+          "total_lesson": 6,
+          "completion_rate": "60",
+          "avg_quiz_score": "86",
+          "baselineAssessment": "12/15",
+          "summativeAssessment": "8/15",
+          "last_activity": "2",
+          "detailsButtonText": "View Subject Details",
+          "total_student": 10,
+          "total_completion": 352,
+          "complete_completion": 0
+        },
+        {
+          "subject_id": 4,
+          "subject_name": "Coping",
+          "total_lesson": 6,
+          "completion_rate": "75",
+          "avg_quiz_score": "84.2",
+          "baselineAssessment": "12/15",
+          "summativeAssessment": "9/15",
+          "last_activity": "2",
+          "detailsButtonText": "View Subject Details",
+          "total_student": 10,
+          "total_completion": 352,
+          "complete_completion": 0
+        },
+        {
+          "subject_id": 5,
+          "subject_name": "Interpersonal Relationships",
+          "total_lesson": 6,
+          "completion_rate": "80",
+          "avg_quiz_score": "84.2",
+          "baselineAssessment": "15/15",
+          "summativeAssessment": "15/15",
+          "last_activity": "2",
+          "detailsButtonText": "View Subject Details",
+          "total_student": 10,
+          "total_completion": 352,
+          "complete_completion": 0
+        }
+      ]
+    }
+  },
+  "studentData": [
+    {
+      "student_id": 1,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@gmail.com",
+      "status": "Completed",
+      "completionScore": "88.5",
+      "avgScore": "89.3",
+      "action": "View Details"
+    },
+    {
+      "student_id": 2,
+      "name": "Brian Smith",
+      "email": "brian.smith@gmail.com",
+      "status": "Inactive",
+      "completionScore": "76.2",
+      "avgScore": "80.0",
+      "action": "View Details"
+    },
+    {
+      "student_id": 3,
+      "name": "Carla Martinez",
+      "email": "carla.martinez@gmail.com",
+      "status": "Completed",
+      "completionScore": "95.0",
+      "avgScore": "94.7",
+      "action": "View Details"
+    },
+    {
+      "student_id": 4,
+      "name": "Daniel Lee",
+      "email": "daniel.lee@gmail.com",
+      "status": "Completed",
+      "completionScore": "91.2",
+      "avgScore": "90.8",
+      "action": "View Details"
+    },
+    {
+      "student_id": 4,
+      "name": "Eva Patel",
+      "email": "eva.patel@gmail.com",
+      "status": "Completed",
+      "completionScore": "83.4",
+      "avgScore": "85.1",
+      "action": "View Details"
+    }
+  ],
+  "courseData": [
+    {
+      "id": 1,
+      "name": "Life Dream"
+    },
+    {
+      "id": 2,
+      "name": "Self-Awareness"
+    },
+    {
+      "id": 3,
+      "name": "Cognitive Construction"
+    },
+    {
+      "id": 4,
+      "name": "Coping"
+    },
+    {
+      "id": 5,
+      "name": "Interpersonal Relationships"
+    }
+  ],
+  "studentProfile": {
+    "student_name": "Emma Thompson",
+    "student_email": "sarah.johnson@school.edu",
+    "overall_score": "82",
+    "subject": "Life Dream",
+    " lesson_overall_status": "completed",
+    "baseline_score": "32",
+    "baseline_status": "in_progress",
+    "summative_score": "60",
+    "summative_status": "Retake Quiz",
+    "lesson_wise": [
+      {
+        "lesson_id": 1,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 1",
+        "percentage": "90",
+        "status": "Completed"
+      },
+      {
+        "lesson_id": 2,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 2",
+        "percentage": "60",
+        "status": "Review"
+      },
+      {
+        "lesson_id": 3,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 3",
+        "percentage": "89",
+        "status": "Completed"
+      },
+      {
+        "lesson_id": 4,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 4",
+        "percentage": "92",
+        "status": "Completed"
+      },
+      {
+        "lesson_id": 5,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 5",
+        "percentage": "65",
+        "status": "Review"
+      },
+      {
+        "lesson_id": 6,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 6",
+        "percentage": "95",
+        "status": "Completed"
+      },
+      {
+        "lesson_id": 7,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 7",
+        "percentage": "85",
+        "status": "Completed"
+      },
+      {
+        "lesson_id": 8,
+        "assessmentType": "Lesson Quiz",
+        "lesson_name": "Lesson 8",
+        "percentage": "92",
+        "status": "Completed"
+      }
+    ]
+  },
+  "course": {
+    "subject": {
+      "subject": "Life Dream",
+      "total_lessons": 8,
+      "total_lesson_quizzes": 24,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "baselineAssessment": {
+        "title": "Life Dream-Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "button": "View Content"
+      },
+      "lessons": [
+        {
+          "lessonNumber": 1,
+          "title": "Ruby Level, Life Dream, Lesson 1",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 2,
+          "title": "Ruby Level, Life Dream, Lesson 2",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 3,
+          "title": "Ruby Level, Life Dream, Lesson 3",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 4,
+          "title": "Ruby Level, Life Dream, Lesson 4",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 5,
+          "title": "Ruby Level, Life Dream, Lesson 5",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 6,
+          "title": "Ruby Level, Life Dream, Lesson 6",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 7,
+          "title": "Ruby Level, Life Dream, Lesson 7",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        },
+        {
+          "lessonNumber": 8,
+          "title": "Ruby Level, Life Dream, Lesson 8",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "duration": "30 min",
+          "button": "View Content"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Life Dream-Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "button": "View Content"
+      }
+    }
+  },
+
+  "schoolData" : [
+    {"id": 1, "school_name": "Envision Academy"},
+    {"id": 2, "school_name": "Lincoln Elementary School"},
+    {"id": 3, "school_name": "University of Helsinki"},
+    {"id": 4, "school_name": "Tampere University"},
+    {"id": 5, "school_name": "University of Turku"}
+  ]
+}

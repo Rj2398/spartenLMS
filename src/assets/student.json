@@ -1,0 +1,798 @@
+{
+  "subjectData": [
+    {
+      "subject_name": "Life Dream",
+      "completion": 0,
+      "lessons": {
+        "completed": 0,
+        "total": 8
+      },
+      "baselineAssessment": "Incomplete",
+      "summativeAssessment": "Locked"
+    },
+    {
+      "subject_name": "Self-Awareness",
+      "completion": 75,
+      "lessons": {
+        "completed": 8,
+        "total": 8
+      },
+      "baselineAssessment": "Completed",
+      "summativeAssessment": "Available"
+    },
+    {
+      "subject_name": "Cognitive Construction",
+      "completion": 100,
+      "lessons": {
+        "completed": 8,
+        "total": 8
+      },
+      "baselineAssessment": "Completed",
+      "summativeAssessment": "Completed"
+    },
+    {
+      "subject_name": "Coping",
+      "completion": 0,
+      "lessons": {
+        "completed": 0,
+        "total": 8
+      },
+      "baselineAssessment": "Incomplete",
+      "summativeAssessment": "Locked"
+    },
+    {
+      "subject_name": "Interpersonal Relationships",
+      "completion": 75,
+      "lessons": {
+        "completed": 6,
+        "total": 8
+      },
+      "baselineAssessment": "Completed",
+      "summativeAssessment": "Locked"
+    }
+  ],
+
+  "yourSubject": [
+    {
+      "name": "Subject Name",
+      "completion": 75,
+      "assessments": {
+        "baseline": "Completed",
+        "lessons": "8/12",
+        "summative": "Locked"
+      },
+      "summativeStatus": "locked"
+    },
+    {
+      "name": "Subject Name",
+      "completion": 75,
+      "assessments": {
+        "baseline": "Completed",
+        "lessons": "8/12",
+        "summative": "Available"
+      },
+      "summativeStatus": "available"
+    },
+    {
+      "name": "Subject Name",
+      "completion": 75,
+      "assessments": {
+        "baseline": "Completed",
+        "lessons": "8/12",
+        "summative": "Completed"
+      },
+      "summativeStatus": "completed"
+    },
+    {
+      "name": "Subject Name",
+      "completion": 75,
+      "assessments": {
+        "baseline": "Incomplete",
+        "lessons": "8/12",
+        "summative": "Locked"
+      },
+      "summativeStatus": "locked"
+    }
+  ],
+
+  "baselingQuestionAnswer": [
+    {
+      "question": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit?'",
+      "options": [
+        "Option 1A",
+        "Option 1B",
+        "Option 1C",
+        "Option 1"
+      ]
+    },
+    {
+      "question": "2. Sed do eiusmod tempor incididunt ut labore?'",
+      "options": [
+        "Option 2A",
+        "Option 2B",
+        "Option 2C",
+        "Option 2"
+      ]
+    },
+    {
+      "question": "3. Ut enim ad minim veniam, quis nostrud exercitation?'",
+      "options": [
+        "Option 3A",
+        "Option 3B",
+        "Option 3C",
+        "Option 3"
+      ]
+    },
+    {
+      "question": "4. Duis aute irure dolor in reprehenderit?'",
+      "options": [
+        "Option 4A",
+        "Option 4B",
+        "Option 4C",
+        "Option 4"
+      ]
+    },
+    {
+      "question": "5. Excepteur sint occaecat cupidatat non proident?'",
+      "options": [
+        "Option 5A",
+        "Option 5B",
+        "Option 5C",
+        "Option 5"
+      ]
+    }
+  ],
+  
+  "subjectDetailData": [
+    {
+      "subjectTitle": "Life Dream",
+      "progress": {
+        "percentage": "50",
+        "lesson": {
+          "completed": 4,
+          "total": 8
+        },
+        "totalLessons": 8,
+        "totalQuizzes": 24,
+        "overallProgressPercent": 50
+      },
+      "baselineAssessment": {
+        "title": "Life Dream-Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": null
+          }
+        ]
+      },
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Ruby Level, Life Dream, Lesson 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 2,
+          "title": "Ruby Level, Life Dream, Lesson 2",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 3,
+          "title": "Ruby Level, Life Dream, Lesson 3",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 4,
+          "title": "Ruby Level, Life Dream, Lesson 4",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 5,
+          "title": "Ruby Level, Life Dream, Lesson 5",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 6,
+          "title": "Ruby Level, Life Dream, Lesson 6",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 7,
+          "title": "Ruby Level, Life Dream, Lesson 7",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        },
+        {
+          "number": 8,
+          "title": "Ruby Level, Life Dream, Lesson 8",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Life Dream-Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Locked",
+        "quizLink": "/student/summative-assessment",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          }
+        ]
+      }
+    },
+    {
+      "subjectTitle": "Self-Awareness",
+      "progress": {
+        "percentage": "100",
+        "lesson": {
+          "completed": 8,
+          "total": 8
+        },
+        "totalLessons": 8,
+        "totalQuizzes": 24,
+        "overallProgressPercent": 100
+      },
+      "baselineAssessment": {
+        "title": "Self-Awareness -Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": null
+          }
+        ]
+      },
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Ruby Level, Self-Awareness , Lesson 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 2,
+          "title": "Ruby Level, Self-Awareness , Lesson 2",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 3,
+          "title": "Ruby Level, Self-Awareness , Lesson 3",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 4,
+          "title": "Ruby Level, Self-Awareness , Lesson 4",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 5,
+          "title": "Ruby Level, Self-Awareness , Lesson 5",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 6,
+          "title": "Ruby Level, Self-Awareness , Lesson 6",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 7,
+          "title": "Ruby Level, Self-Awareness , Lesson 7",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 8,
+          "title": "Ruby Level, Self-Awareness , Lesson 8",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Self-Awareness -Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "quizLink": "/student/summative-assessment",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          }
+        ]
+      }
+    },
+    {
+      "subjectTitle": "Cognitive Construction",
+      "progress": {
+        "percentage": "0",
+        "lesson": {
+          "completed": 0,
+          "total": 8
+        },
+        "totalLessons": 8,
+        "totalQuizzes": 24,
+        "overallProgressPercent": 75
+      },
+      "baselineAssessment": {
+        "title": "Cognitive Construction-Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": null
+          }
+        ]
+      },
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Ruby Level, Cognitive Construction, Lesson 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 2,
+          "title": "Ruby Level, Cognitive Construction, Lesson 2",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 3,
+          "title": "Ruby Level, Cognitive Construction, Lesson 3",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 4,
+          "title": "Ruby Level, Cognitive Construction, Lesson 4",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        },
+        {
+          "number": 5,
+          "title": "Ruby Level, Cognitive Construction, Lesson 5",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 6,
+          "title": "Ruby Level, Cognitive Construction, Lesson 6",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 7,
+          "title": "Ruby Level, Cognitive Construction, Lesson 7",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 8,
+          "title": "Ruby Level, Cognitive Construction, Lesson 8",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Cognitive Construction-Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "quizLink": "/student/summative-assessment",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          }
+        ]
+      }
+    },
+    {
+      "subjectTitle": "Coping",
+      "progress": {
+        "percentage": "0",
+        "lesson": {
+          "completed": 0,
+          "total": 8
+        },
+        "totalLessons": 8,
+        "totalQuizzes": 24,
+        "overallProgressPercent": 75
+      },
+      "baselineAssessment": {
+        "title": "Coping-Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": null
+          }
+        ]
+      },
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Ruby Level, Coping, Lesson 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 2,
+          "title": "Ruby Level, Coping, Lesson 2",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 3,
+          "title": "Ruby Level, Coping, Lesson 3",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 4,
+          "title": "Ruby Level, Coping, Lesson 4",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        },
+        {
+          "number": 5,
+          "title": "Ruby Level, Coping, Lesson 5",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 6,
+          "title": "Ruby Level, Coping, Lesson 6",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 7,
+          "title": "Ruby Level, Coping, Lesson 7",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 8,
+          "title": "Ruby Level, Coping, Lesson 8",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Coping-Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "quizLink": "/student/summative-assessment",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          }
+        ]
+      }
+    },
+    {
+      "subjectTitle": "Interpersonal Relationships",
+      "progress": {
+        "percentage": "0",
+        "lesson": {
+          "completed": 0,
+          "total": 8
+        },
+        "totalLessons": 8,
+        "totalQuizzes": 24,
+        "overallProgressPercent": 75
+      },
+      "baselineAssessment": {
+        "title": "Interpersonal Relationships-Baseline Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": null
+          }
+        ]
+      },
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 2,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 2",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 3,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 3",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 4,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 4",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        },
+        {
+          "number": 5,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 5",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Completed",
+          "duration": "30 min"
+        },
+        {
+          "number": 6,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 6",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "In-progress",
+          "duration": "30 min"
+        },
+        {
+          "number": 7,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 7",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Not Started",
+          "duration": "30 min"
+        },
+        {
+          "number": 8,
+          "title": "Ruby Level, Interpersonal Relationships, Lesson 8",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+          "status": "Locked",
+          "duration": "30 min"
+        }
+      ],
+      "summativeAssessment": {
+        "title": "Interpersonal Relationships-Summative Assessment",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "status": "Completed",
+        "quizLink": "/student/summative-assessment",
+        "submittedAnswers": [
+          {
+            "question": "Question 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          },
+          {
+            "question": "Question 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+            "answer": "Lorem ipsum dolor sit amet"
+          }
+        ]
+      }
+    }
+  ]
+}
