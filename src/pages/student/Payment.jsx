@@ -251,7 +251,7 @@ const Payment = () => {
 
                     <button
                       style={{
-                        background: "#e5e7eb",
+                        background: "#C6C6C6",
                         border: "none",
                         padding: "12px",
                         borderRadius: "20px",
