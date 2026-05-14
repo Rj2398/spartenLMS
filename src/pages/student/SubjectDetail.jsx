@@ -150,7 +150,7 @@ const SubjectDetail = () => {
         </div>
 
         {/* Baseline Assessment */}
-        {!subscriptionStatus && (
+        {subscriptionStatus && (
           <div className="assessment-result">
             <div className="payment-card">
               <div className="payment-left">
