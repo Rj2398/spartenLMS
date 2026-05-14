@@ -37,7 +37,6 @@ const AppRouter = () => (
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify" element={<OtpVerification />} />
         <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/payment-success" element={<PaymentSuccess />} />
       </Route>
 
       {/* 2. PROTECTED STUDENT ROUTES (isPrivate={true}) 
@@ -49,7 +48,7 @@ const AppRouter = () => (
           <Route path="/student/payments" element={<Payment />} />
           <Route path="/student/subject-detail" element={<SubjectDetail />} />
           <Route path="/student/lesson-detail" element={<LessonDetail />} />
-
+          <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/student/payments" element={<Payment />} />
           <Route
             path="/student/progress-and-score"
@@ -81,79 +80,3 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { Roles } from "../utils/roles";
-// import RoleBasedRoute from "./RoleBasedRoute";
-
-// // Layouts
-// import StudentLayout from "../layout/StudentLayout";
-
-// // Student Panel Pages
-// import StudentDashboard from "../pages/student/Dashboard";
-// import NotFound from "../pages/common/NotFound";
-// import Login from "../pages/student/Login/Login";
-// import StudentProfile from "../pages/student/Profile";
-// import StudentProgressAndScore from "../pages/student/ProgressAndScore";
-// import BaselineAssessment from "../pages/student/BaselineAssessment";
-// import SubjectDetail from "../pages/student/SubjectDetail";
-// import LessonDetail from "../pages/student/LessonDetail";
-// import SummativeAssessment from "../pages/student/SummativeAssessment";
-
-// import TermsCondition from "../pages/common/TermsCondition";
-// import PrivacyPolicy from "../pages/common/PrivacyPolicy";
-
-// import Payment from "../pages/student/Payment";
-// import PaymentPage from "../pages/student/stripe/PaymentPage";
-// import CreateAccount from "../pages/student/Login/CreateAccount";
-// import ForgotPassword from "../pages/student/Login/ForgotPassword";
-
-// import NewPassword from "../pages/student/Login/NewPassword";
-// import OtpVerification from "../pages/student/Login/OtpVerification";
-// import AssessmentReview from "../pages/student/AssessmentReview";
-
-// const AppRouter = () => (
-//   <Router>
-//     <Routes>
-
-//       <Route path="/" element={<Login />} />
-//       <Route path="/create-account" element={<CreateAccount />} />
-//       <Route path="/forgot-password" element={<ForgotPassword />} />
-//       <Route path="/verify" element={<OtpVerification />} />
-//       <Route path="/new-password" element={<NewPassword />} />
-
-//       <Route path="/terms-and-conditions" element={<TermsCondition />} />
-//       <Route path="/privacy-and-policy" element={<PrivacyPolicy />} />
-
-//       <Route element={<StudentLayout />}>
-//         <Route path="/student/dashboard" element={<StudentDashboard />} />
-//         <Route path="/student/payments" element={<Payment />} />
-//         <Route path="/student/paymentpage" element={<PaymentPage />} />
-//         <Route
-//           path="/student/baseline-assignment/:subject_id"
-//           element={<BaselineAssessment />}
-//         />
-//         <Route path="/student/subject-detail" element={<SubjectDetail />} />
-//         <Route path="/student/lesson-detail" element={<LessonDetail />} />
-//         <Route
-//           path="/student/summative-assessment/:subject_id"
-//           element={<SummativeAssessment />}
-//         />
-//         <Route path="/student/profile" element={<StudentProfile />} />
-//         <Route
-//           path="/student/progress-and-score"
-//           element={<StudentProgressAndScore />}
-//         />
-
-//         <Route
-//           path="/student/assesment-review"
-//           element={<AssessmentReview />}
-//         />
-//       </Route>
-
-//       <Route path="*" element={<NotFound />} />
-//     </Routes>
-//   </Router>
-// );
-
-// export default AppRouter;
