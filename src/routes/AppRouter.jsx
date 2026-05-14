@@ -26,6 +26,7 @@ import PrivacyPolicy from "../pages/common/PrivacyPolicy";
 import NotFound from "../pages/common/NotFound";
 import ProtectedRoute from "./RoleBasedRoute";
 import PaymentSuccess from "../pages/student/PaymentSuccess";
+import PaymentFailed from "../pages/student/PaymentFailed";
 const AppRouter = () => (
   <Router>
     <Routes>
@@ -42,14 +43,17 @@ const AppRouter = () => (
       {/* 2. PROTECTED STUDENT ROUTES (isPrivate={true}) 
           Redirects to / if user is NOT logged in */}
       <Route element={<ProtectedRoute isPrivate={true} />}>
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/student/payment-cancel" element={<PaymentFailed />} />
         <Route element={<StudentLayout />}>
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/profile" element={<StudentProfile />} />
           <Route path="/student/payments" element={<Payment />} />
           <Route path="/student/subject-detail" element={<SubjectDetail />} />
           <Route path="/student/lesson-detail" element={<LessonDetail />} />
-          <Route path="/payment-success" element={<PaymentSuccess />} />
+
           <Route path="/student/payments" element={<Payment />} />
+
           <Route
             path="/student/progress-and-score"
             element={<StudentProgressAndScore />}
