@@ -150,45 +150,44 @@ const SubjectDetail = () => {
         </div>
 
         {/* Baseline Assessment */}
-        {
-          subscriptionStatus === "false" && (
-        <div className="assessment-result">
-          <div className="payment-card">
-            <div className="payment-left">
-              <div className="lock-icon">
-                <img src="/images/subject-detail/lock.png" alt="lock icon" />
-              </div>
+        {!subscriptionStatus && (
+          <div className="assessment-result">
+            <div className="payment-card">
+              <div className="payment-left">
+                <div className="lock-icon">
+                  <img src="/images/subject-detail/lock.png" alt="lock icon" />
+                </div>
 
-              <div>
-                <h4>Complete Your Payment to Access Quizzes</h4>
-                <p>
-                  Unlock all quizzes for this course with a one-time payment.
-                </p>
+                <div>
+                  <h4>Complete Your Payment to Access Quizzes</h4>
+                  <p>
+                    Unlock all quizzes for this course with a one-time payment.
+                  </p>
 
-                <div className="payment-alert">
-                  <span>
-                    <img
-                      src="/images/subject-detail/jam_info.png"
-                      alt="alert icon"
-                    />
-                  </span>
-                  Once payment is completed, all quizzes will be unlocked
-                  instantly across all lessons.
+                  <div className="payment-alert">
+                    <span>
+                      <img
+                        src="/images/subject-detail/jam_info.png"
+                        alt="alert icon"
+                      />
+                    </span>
+                    Once payment is completed, all quizzes will be unlocked
+                    instantly across all lessons.
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="payment-right">
-              <button
-                className="unlock-btn"
-                onClick={() => makePaymentAction()}
-              >
-                Unlock Quizzes
-              </button>
+              <div className="payment-right">
+                <button
+                  className="unlock-btn"
+                  onClick={() => makePaymentAction()}
+                >
+                  Unlock Quizzes
+                </button>
+              </div>
             </div>
           </div>
-        </div>)
-        }
+        )}
         {/* Lessons */}
         <div className="sub-lessons-list">
           <h3>Lessons</h3>

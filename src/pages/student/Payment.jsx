@@ -6,7 +6,37 @@ import {
   paymentHistory,
   paymentInitiate,
 } from "../../redux/slices/student/subjectSlice";
-
+// const courseData = [
+//   {
+//     id: 1,
+//     course_name: "React Mastery",
+//     date: "02-02-2025",
+//     status: "completed",
+//     invoice: true,
+//   },
+//   {
+//     id: 2,
+//     course_name: "Node.js Backend",
+//     date: "05-02-2025",
+//     status: "failed",
+//     invoice: false,
+//   },
+//   {
+//     id: 3,
+//     course_name: "Fullstack MERN",
+//     date: "10-02-2025",
+//     status: "completed",
+//     invoice: true,
+//   },
+//   {
+//     id: 4,
+//     course_name: "UI/UX Design",
+//     date: "12-02-2025",
+//     status: "failed",
+//     invoice: false,
+//   },
+//   // ... more data
+// ];
 const Payment = () => {
   const dispatch = useDispatch();
   const { allSubject } = useSelector((state) => state.subject);

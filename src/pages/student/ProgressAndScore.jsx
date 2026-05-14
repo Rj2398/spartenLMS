@@ -16,6 +16,7 @@ const ProgressAndScore = () => {
   const { allSubject, progressInfo, subjectWiseQuizInfo } = useSelector(
     (state) => state.subject
   );
+
   const [selectedSubject, setSelectedSubject] = useState("all");
   const [selectedProgressSubject, setSelectedProgressSubject] = useState(null);
   const [showLession, setShowLession] = useState(false);
@@ -31,30 +32,20 @@ const ProgressAndScore = () => {
 
   useEffect(() => {
     if (selectedSubject) {
-      dispatch(
-        getUserProgress(
-          selectedSubject === "all" ? {} : { subject_id: selectedSubject }
-        )
-      );
-      dispatch(
-        subjectWiseProgress(
-          selectedSubject === "all" ? {} : { subject_id: selectedSubject }
-        )
-      );
+      dispatch(getUserProgress({ subject_id: allSubject?.[0]?.id }));
+      dispatch(subjectWiseProgress({ subject_id: allSubject?.[0]?.id }));
     }
   }, [selectedSubject]);
 
   useEffect(() => {
     if (selectedProgressSubject) {
-      dispatch(
-        subjectWiseQuizProgress({ subject_id: selectedProgressSubject })
-      );
+      dispatch(subjectWiseQuizProgress({ subject_id: allSubject?.[0]?.id }));
     }
   }, [selectedProgressSubject]);
 
   useEffect(() => {
     if (allSubject) {
-      setSelectedProgressSubject(allSubject?.[0]?.id);
+      setSelectedProgressSubject(allSubject[0]?.id);
     }
   }, [allSubject]);
 
@@ -249,16 +240,13 @@ const ProgressAndScore = () => {
                                 </p> */}
                                  
                                 <p>
-                                                                   {" "}
                                   <span
                                     style={{ backgroundColor: lessonColor }}
-                                  ></span>{" "}
-                                                                    Lesson Quiz,
-                                  ({lesson}%){" "}
+                                  ></span>
+                                  Lesson Quiz, ({lesson}%)
                                   {subject?.completed_subject_lessons_quizzes ||
                                     0}
-                                  /{subject?.total_subject_lessons || 0}       
-                                                         {" "}
+                                  /{subject?.total_subject_lessons || 0}
                                 </p>
                               </div>
                             </div>

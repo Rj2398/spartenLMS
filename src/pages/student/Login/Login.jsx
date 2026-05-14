@@ -5,9 +5,8 @@ import { signIn } from "../../../redux/slices/authSlice";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  
- const navigate = useNavigate()
- const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -51,44 +50,37 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!validation()) {
-    console.log("Validation failed ❌");
-    return;
-  }
-
-  try {
-    const response = await dispatch(signIn(formData)).unwrap();
-
-    console.log("SUCCESS =>", response);
-
-    if(response?.success===true){
-      toast.success(response?.message || "Login successful");
-      navigate("/student/dashboard");
-    }else{
-      toast.error(response?.message || "Login failed");
+    if (!validation()) {
+      console.log("Validation failed ❌");
+      return;
     }
- 
 
-  } catch (error) {
-    console.log("LOGIN ERROR =>", error);
+    try {
+      const response = await dispatch(signIn(formData)).unwrap();
 
-    toast.error(
-      error?.message || "Login failed"
-    );
-  }
-};
+      console.log("SUCCESS =>", response);
+
+      if (response?.success === true) {
+        toast.success(response?.message || "Login successful");
+      } else {
+        toast.error(response?.message || "Login failed");
+      }
+    } catch (error) {
+      console.log("LOGIN ERROR =>", error);
+
+      toast.error(error?.message || "Login failed");
+    }
+  };
 
   // useEffect(() => {
   //   if (isAuthenticated && user?.role) {
-  
+
   //     navigate(`/${user.role?.replace("_", "-")}/dashboard`);
   //   }
   // }, [isAuthenticated, user, navigate]);
-
 
   return (
     <section>
@@ -105,7 +97,8 @@ const Login = () => {
           <div className="form-inner">
             <h3 className="log-in">Login</h3>
             <p className="login">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod
             </p>
 
             {/* ✅ FIXED FORM */}
@@ -141,7 +134,7 @@ const Login = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                   onKeyDown={(e) => {
+                  onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       handleSubmit(e);
                     }
@@ -155,9 +148,7 @@ const Login = () => {
                 <div className="password-eye">
                   <div
                     onClick={() => setShowPassword((prev) => !prev)}
-                    className={`eye ${
-                      showPassword ? "eye-open" : "eye-close"
-                    }`}
+                    className={`eye ${showPassword ? "eye-open" : "eye-close"}`}
                   ></div>
                 </div>
               </div>
@@ -172,8 +163,7 @@ const Login = () => {
               </button>
 
               <div className="signup">
-                Don’t have an account?{" "}
-                <Link to="/create-account">Sign up</Link>
+                Don’t have an account? <Link to="/create-account">Sign up</Link>
               </div>
             </form>
           </div>
@@ -184,5 +174,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
