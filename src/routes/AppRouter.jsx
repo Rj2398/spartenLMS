@@ -20,7 +20,6 @@ import SummativeAssessment from "../pages/student/SummativeAssessment";
 import AssessmentReview from "../pages/student/AssessmentReview";
 
 import Payment from "../pages/student/Payment";
-import PaymentPage from "../pages/student/stripe/PaymentPage";
 
 import TermsCondition from "../pages/common/TermsCondition";
 import PrivacyPolicy from "../pages/common/PrivacyPolicy";
@@ -48,7 +47,6 @@ const AppRouter = () => (
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/profile" element={<StudentProfile />} />
           <Route path="/student/payments" element={<Payment />} />
-          <Route path="/student/paymentpage" element={<PaymentPage />} />
           <Route path="/student/subject-detail" element={<SubjectDetail />} />
           <Route path="/student/lesson-detail" element={<LessonDetail />} />
 

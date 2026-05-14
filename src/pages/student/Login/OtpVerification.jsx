@@ -8,7 +8,7 @@ import {
   resendOtp,
   verifyForgotPasswordOtp,
 } from "../../../redux/slices/authSlice";
-import { updateUserEmail } from "../../../redux/slices/student/studentSlice";
+import { updateUserEmail, verifyUserEmail } from "../../../redux/slices/student/studentSlice";
 
 const OtpVerification = () => {
   const navigate = useNavigate();
@@ -183,15 +183,53 @@ const OtpVerification = () => {
     }
   };
 
-  const handleResendOtp = async () => {
-    if (!canResend) return;
+  // const handleResendOtp = async () => {
+  //   if (!canResend) return;
 
+  //   try {
+  //     const response = await dispatch(
+  //       resendOtp({
+  //         email: signUpUser?.user?.email || email || updateemail,
+  //       })
+  //     ).unwrap();
+
+  //     console.log("RESEND RESPONSE:", response);
+
+  //     toast.success("OTP resent successfully");
+
+  //     // reset timer
+  //     setTimer(119);
+  //     setCanResend(false);
+
+  //     // clear fields
+  //     setOtp(["", "", "", "", "", ""]);
+  //   } catch (error) {
+  //     console.log(error);
+
+  //     toast.error(error?.message || "Failed to resend OTP");
+  //   }
+  // };
+
+   const handleResendOtp = async () => {
+    if (!canResend) return;
+      let response;
     try {
-      const response = await dispatch(
-        resendOtp({
-          email: signUpUser?.user?.email || email || updateemail,
-        })
-      ).unwrap();
+
+    if(!updateemail ){
+      response = await dispatch(
+         resendOtp({
+           email: signUpUser?.user?.email|| email
+         })
+       ).unwrap();
+
+    }else{
+        response = await dispatch(
+         verifyUserEmail({
+           email:updateemail
+         })
+       ).unwrap();
+    }
+
 
       console.log("RESEND RESPONSE:", response);
 

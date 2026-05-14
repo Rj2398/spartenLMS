@@ -194,7 +194,7 @@ const Payment = () => {
 
                   {/* Invoice */}
                   <td>
-                    {item.invoice && (
+                    {/* {item.invoice && (
                       <button
                         style={{
                           background: "#e5e7eb",
@@ -216,7 +216,44 @@ const Payment = () => {
                         />
                         Invoice
                       </button>
-                    )}
+                      
+                    )} */}
+
+                    <button
+                      style={{
+                        background: "#e5e7eb",
+                        border: "none",
+                        padding: "12px",
+                        borderRadius: "20px",
+                        fontSize: "15px",
+                        cursor: "pointer",
+                        color: "#4B5563",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                      }}
+                    >
+                      <a
+                        href={
+                          item?.invoice || "/images/subject-detail/download.png"
+                        }
+                        download
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          textDecoration: "none",
+                          color: "#4B5563",
+                        }}
+                      >
+                        <img
+                          src="/images/subject-detail/download.png"
+                          style={{ width: "20px" }}
+                          alt="download"
+                        />
+                        Invoice
+                      </a>
+                    </button>
                   </td>
                 </tr>
               ))
