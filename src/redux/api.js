@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import {isLoggingOut} from "../pages/student/Profile"
 
 export const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -22,25 +23,66 @@ API.interceptors.request.use(
   }
 );
 
+// API.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     const message = error?.response?.data?.message;
+
+//     if (message === "Unauthenticated." || error?.response?.status === 401) {
+//       toast.error("Token Expired");
+
+//       localStorage.removeItem("token");
+//       localStorage.removeItem("pmsc");
+
+//       setTimeout(() => {
+//         window.location.href = "/";
+//       }, 1000);
+//     }
+
+//     return Promise.reject(error);
+//   }
+// );
+
+
+let isRedirecting = false;
+
 API.interceptors.response.use(
   (response) => response,
   (error) => {
+    const status = error?.response?.status;
     const message = error?.response?.data?.message;
+    const url = error?.config?.url || "";
 
-    if (message === "Unauthenticated." || error?.response?.status === 401) {
-      toast.error("Token Expired");
+    const isLoginApi =
+      url.includes("/login") ||
+      url.includes("/signin");
 
-      localStorage.removeItem("token");
-      localStorage.removeItem("pmsc");
+    const isUnauthorized =
+      status === 401 || message === "Unauthenticated.";
+
+    if (
+      isUnauthorized &&
+      !isLoginApi &&
+      !isRedirecting &&
+      !isLoggingOut
+    ) {
+      isRedirecting = true;
+
+      toast.error("Session expired. Please login again.");
+
+      localStorage.clear();
+      sessionStorage.clear();
 
       setTimeout(() => {
-        window.location.href = "/";
+        window.location.replace("/");
       }, 1000);
     }
 
     return Promise.reject(error);
   }
 );
+
+
 
 export const signIn = (formData) => API.post(`/login`, formData);
 export const signUp = (formData) => API.post(`/signup`, formData);

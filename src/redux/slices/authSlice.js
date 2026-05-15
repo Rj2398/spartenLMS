@@ -239,9 +239,6 @@ const authSlice = createSlice({
       })
       .addCase(signIn.rejected, (state, action) => {
         state.loading = false;
-        toast.error(
-          action.payload?.message || "Login failed. Please try again."
-        );
         state.error = action.payload?.message || "Failed to sign in.";
       })
 
@@ -376,7 +373,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = null;
         state.isAuthenticated = false;
-        toast.success("Logout Successfully...");
+        // toast.success("Logout Successfully...");
         localStorage.removeItem("pmsc");
         localStorage.removeItem("token");
         localStorage.removeItem("classLevel");
@@ -388,7 +385,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = null;
         state.isAuthenticated = false;
-        toast.success("Logout Successfully...");
+        // toast.success("Logout Successfully...");
         localStorage.removeItem("pmsc");
         localStorage.removeItem("token");
         localStorage.removeItem("classLevel");

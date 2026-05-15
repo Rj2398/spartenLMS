@@ -11,6 +11,8 @@ import { logout } from "../../redux/slices/authSlice";
 import toast from "react-hot-toast";
 import OtpModal from "../../components/student/OtpModal";
 
+export let isLoggingOut = false;
+
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -89,18 +91,32 @@ const Profile = () => {
     }
   };
 
+
+
   // const handleLogout = () => {
   //   dispatch(logout());
-  // };
+  //   localStorage.clear();
+  //   sessionStorage.clear();
+  //   // window.location.assign(
+  //   //   `https://clever.com/oauth/logout?redirect_uri=https://pmsc.holpentech.com`
+  //   // );
+  //  };
+
 
   const handleLogout = () => {
-    dispatch(logout());
-    localStorage.clear();
-    sessionStorage.clear();
-    // window.location.assign(
-    //   `https://clever.com/oauth/logout?redirect_uri=https://pmsc.holpentech.com`
-    // );
-  };
+  isLoggingOut = true;
+
+  dispatch(logout());
+
+  localStorage.clear();
+  sessionStorage.clear();
+
+  toast.success("Logout Successfully...");
+
+  setTimeout(() => {
+    window.location.replace("/");
+  }, 1000);
+};
 
   return (
     <>
