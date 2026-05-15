@@ -364,76 +364,93 @@ const SubjectDetail = () => {
                       </Link>
                     </div>
 
-                    <div>
-                      <button
-                        disabled={lesson?.lesson_quiz_status === "locked"}
-                        onClick={() => {
-                          const status = lesson?.lesson_quiz_status;
+                    {!storeAllLession?.user_subscription_status ? (
+                      <div>
+                        <button
+                          className="status"
+                          style={{
+                            padding: "12px",
+                            borderRadius: "10px",
+                            border: "none",
+                            opacity: 0.5,
+                            backgroundColor: "#C6C6C6",
+                          }}
+                        >
+                          Start Quiz
+                        </button>
+                      </div>
+                    ) : (
+                      <div>
+                        <button
+                          disabled={lesson?.lesson_quiz_status === "locked"}
+                          onClick={() => {
+                            const status = lesson?.lesson_quiz_status;
 
-                          if (
-                            ["start_quiz", "in_process", "retake"].includes(
-                              status
-                            )
-                          ) {
-                            navigate(
-                              `/student/baseline-assignment/${lesson?.subject_id}`,
-                              {
+                            if (
+                              ["start_quiz", "in_process", "retake"].includes(
+                                status
+                              )
+                            ) {
+                              navigate(
+                                `/student/baseline-assignment/${lesson?.subject_id}`,
+                                {
+                                  state: {
+                                    subjectId: lesson?.subject_id,
+                                    lessonTitle: lesson?.title,
+                                    lessonId: lesson?.id,
+                                    quizStatus:
+                                      status === "start_quiz" ||
+                                      status === "in_process"
+                                        ? "start"
+                                        : "retake",
+                                  },
+                                }
+                              );
+                            } else if (status === "completed") {
+                              navigate(`/student/assesment-review`, {
                                 state: {
                                   subjectId: lesson?.subject_id,
-                                  lessonTitle: lesson?.title,
                                   lessonId: lesson?.id,
-                                  quizStatus:
-                                    status === "start_quiz" ||
-                                    status === "in_process"
-                                      ? "start"
-                                      : "retake",
                                 },
-                              }
-                            );
-                          } else if (status === "completed") {
-                            navigate(`/student/assesment-review`, {
-                              state: {
-                                subjectId: lesson?.subject_id,
-                                lessonId: lesson?.id,
-                              },
-                            });
-                          }
-                        }}
-                        className={`status ${
-                          ["not_started", "locked", ""].includes(
-                            lesson?.lesson_quiz_status
-                          )
-                            ? "locked"
-                            : lesson?.lesson_quiz_status === "start_quiz"
-                            ? "start_quiz"
+                              });
+                            }
+                          }}
+                          className={`status ${
+                            ["not_started", "locked", ""].includes(
+                              lesson?.lesson_quiz_status
+                            )
+                              ? "locked"
+                              : lesson?.lesson_quiz_status === "start_quiz"
+                              ? "start_quiz"
+                              : lesson?.lesson_quiz_status === "completed"
+                              ? "completed"
+                              : lesson?.lesson_quiz_status === "in_process"
+                              ? "in-progress"
+                              : lesson?.lesson_quiz_status === "retake"
+                              ? "retake"
+                              : "locked"
+                          }`}
+                          style={{
+                            padding: "12px",
+                            borderRadius: "10px",
+                            border: "none",
+                            // cursor: subscriptionStatus ? "pointer" : "not-allowed",
+                            opacity:
+                              lesson?.lesson_quiz_status === "locked" ? "" : 1,
+                          }}
+                        >
+                          {lesson?.lesson_quiz_status === "locked"
+                            ? "Locked Quiz"
                             : lesson?.lesson_quiz_status === "completed"
-                            ? "completed"
-                            : lesson?.lesson_quiz_status === "in_process"
-                            ? "in-progress"
-                            : lesson?.lesson_quiz_status === "retake"
-                            ? "retake"
-                            : "locked"
-                        }`}
-                        style={{
-                          padding: "12px",
-                          borderRadius: "10px",
-                          border: "none",
-                          // cursor: subscriptionStatus ? "pointer" : "not-allowed",
-                          opacity:
-                            lesson?.lesson_quiz_status === "locked" ? "" : 1,
-                        }}
-                      >
-                        {lesson?.lesson_quiz_status === "locked"
-                          ? "Locked Quiz"
-                          : lesson?.lesson_quiz_status === "completed"
-                          ? "Quiz Completed"
-                          : lesson?.lesson_quiz_status
-                          ? lesson.lesson_quiz_status
-                              .replace(/_/g, " ")
-                              .replace(/\b\w/g, (char) => char.toUpperCase())
-                          : "Start Quiz"}
-                      </button>
-                    </div>
+                            ? "Quiz Completed"
+                            : lesson?.lesson_quiz_status
+                            ? lesson.lesson_quiz_status
+                                .replace(/_/g, " ")
+                                .replace(/\b\w/g, (char) => char.toUpperCase())
+                            : "Start Quiz"}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
