@@ -133,6 +133,20 @@ export const paymentHistory = createAsyncThunk(
   }
 );
 
+//
+
+export const downloadPDf = createAsyncThunk(
+  "/student/user-payment-invoice",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await api.downloadPDf(formData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
 const subjectSlice = createSlice({
   name: "subjectSlice",
   initialState: {
@@ -150,6 +164,7 @@ const subjectSlice = createSlice({
     submittedAns: null,
     paymentRespone: null,
     paymentHistory: null,
+    paymentPDf: null,
   },
   reducers: {
     setCurrentSubject: (state, action) => {
@@ -238,14 +253,26 @@ const subjectSlice = createSlice({
       .addCase(getSubmittedAnswer.fulfilled, (state, action) => {
         state.loading = false;
         state.submittedAns = action.payload?.data;
-        // toast.success("Assessment Completed!");
       })
       .addCase(getSubmittedAnswer.rejected, (state, action) => {
         state.loading = false;
         state.error =
           action.payload?.message || "Failed to fetch client information";
       })
-
+      //
+      .addCase(downloadPDf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(downloadPDf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.paymentPDf = action.payload?.data;
+      })
+      .addCase(downloadPDf.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.payload?.message || "Failed to fetch client information";
+      })
       .addCase(getUserProgress.pending, (state) => {
         state.loading = true;
         state.error = null;

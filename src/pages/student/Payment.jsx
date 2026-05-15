@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  downloadPDf,
   getAllSubject,
   paymentHistory,
   paymentInitiate,
 } from "../../redux/slices/student/subjectSlice";
+import toast from "react-hot-toast";
+
 // const courseData = [
 //   {
 //     id: 1,
@@ -43,6 +46,7 @@ const Payment = () => {
   const itemsPerPage = 5;
 
   const [courseData, setcourseData] = useState([]);
+  const [localStorePdf, setLocalStorePdf] = useState(null);
   const [selectedProgressSubject, setSelectedProgressSubject] = useState("");
   const uniqueStatuses = [...new Set(courseData.map((item) => item.status))];
 
@@ -109,6 +113,81 @@ const Payment = () => {
       // Handle the error (e.g., show a toast notification)
     }
   };
+  const downloadPdf = async (id) => {
+    if (!id) return;
+
+    try {
+      // 1. Fetch the PDF URL from your API
+      const res = await dispatch(downloadPDf({ payment_id: id })).unwrap();
+      const fileUrl = res?.data?.file_url;
+
+      if (!fileUrl) {
+        console.error("File URL missing from server response");
+        return;
+      }
+
+      // 2. Fetch the actual file data as a Blob to bypass browser opening behavior
+      const fileResponse = await fetch(fileUrl);
+      const blob = await fileResponse.blob();
+
+      // 3. Create a temporary local Object URL for that Blob data
+      const localUrl = window.URL.createObjectURL(blob);
+
+      // 4. Create a hidden link and point it to our local Object URL
+      const link = document.createElement("a");
+      link.href = localUrl;
+      link.setAttribute("download", `invoice_${id}.pdf`); // This will now work perfectly
+
+      // 5. Append to body, click it to trigger local save, and clean up
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up from memory
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(localUrl);
+
+      // Optional state update
+      setLocalStorePdf(fileUrl);
+    } catch (error) {
+      console.error("Error downloading PDF locally:", error);
+      // Add your toast alert here if the download fails
+    }
+  };
+  // const downloadPdf = async (id) => {
+  //   if (!id) return;
+
+  //   try {
+  //     // 1. Fetch the PDF URL from your backend
+  //     const res = await dispatch(downloadPDf({ payment_id: id })).unwrap();
+
+  //     // Get the file URL from your API response structure
+  //     const fileUrl = res?.data?.file_url;
+
+  //     if (fileUrl) {
+  //       // 2. Create a temporary hidden anchor link
+  //       const link = document.createElement("a");
+  //       link.href = fileUrl;
+
+  //       // Forces the browser to download instead of navigating
+  //       link.setAttribute("download", `invoice_${id}.pdf`);
+  //       link.setAttribute("target", "_blank"); // Fallback safety for cross-origin URLs
+
+  //       // 3. Append, click, and clean up
+  //       document.body.appendChild(link);
+  //       link.click();
+  //       document.body.removeChild(link);
+
+  //       // Optional state update if you still need it elsewhere
+  //       setLocalStorePdf(fileUrl);
+  //       toast.success(res.message);
+  //     } else {
+  //       console.error("File URL missing from server response");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error downloading PDF:", error);
+  //     // Trigger toast notification error here
+  //   }
+  // };
 
   return (
     <>
@@ -262,27 +341,14 @@ const Payment = () => {
                         alignItems: "center",
                         gap: "8px",
                       }}
+                      onClick={() => downloadPdf(item?.id)}
                     >
-                      <a
-                        href={
-                          item?.invoice || "/images/subject-detail/download.png"
-                        }
-                        download
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          textDecoration: "none",
-                          color: "#4B5563",
-                        }}
-                      >
-                        <img
-                          src="/images/subject-detail/download.png"
-                          style={{ width: "20px" }}
-                          alt="download"
-                        />
-                        Invoice
-                      </a>
+                      <img
+                        src="/images/subject-detail/download.png"
+                        style={{ width: "20px" }}
+                        alt="download"
+                      />
+                      Invoice
                     </button>
                   </td>
                 </tr>

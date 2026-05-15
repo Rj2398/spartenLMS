@@ -68,6 +68,9 @@ export const paymentInitiate = (formData) =>
   API.post(`/create-subscription-payment`, formData);
 export const paymentHistory = (formData) =>
   API.post(`/user-payment-history`, formData);
+
+export const downloadPDf = (formData) =>
+  API.post(`/user-payment-invoice`, formData);
 //
 
 //
