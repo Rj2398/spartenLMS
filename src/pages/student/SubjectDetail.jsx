@@ -28,11 +28,11 @@ const SubjectDetail = () => {
 
   const lessonMap = storeAllLession?.subject?.get_lessons || [];
 
-  const [subscriptionStatus, setSubscriptionStatus] = useState(
-    storeAllLession?.user_subscription_status
-  );
+  // const [subscriptionStatus, setSubscriptionStatus] = useState(
+  //   storeAllLession?.user_subscription_status
+  // );
 
-  console.log("subscriptionStatus", subscriptionStatus);
+  // console.log("subscriptionStatus", subscriptionStatus);
 
   useEffect(() => {
     if (subjectId) {
@@ -54,8 +54,6 @@ const SubjectDetail = () => {
           subject_id: subjectId,
         })
       ).unwrap();
-
-      console.log("Lesson completed", res);
 
       // Refresh lesson list
       dispatch(
@@ -150,7 +148,7 @@ const SubjectDetail = () => {
         </div>
 
         {/* Baseline Assessment */}
-        {subscriptionStatus && (
+        {storeAllLession?.user_subscription_status && (
           <div className="assessment-result">
             <div className="payment-card">
               <div className="payment-left">
