@@ -130,11 +130,10 @@ const ProgressAndScore = () => {
         />
       </div>
       <div className="progress-grid">
-        <div className="row g-0">
-          <div className="col-lg-3">
+        <div className="row g-5">
+          <div className="col-lg-6">
             <div
               className="progress-grid-in ms-0"
-              style={{ marginRight: "30px" }}
             >
               <h2>
                 <img src="/images/Overlay.svg" alt="" /> Lesson Quiz Progress
@@ -150,7 +149,7 @@ const ProgressAndScore = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-6">
             <div className="progress-grid-in">
               <h2>
                 <img src="/images/dashboard/progress-grid/3.svg" alt="" />{" "}
