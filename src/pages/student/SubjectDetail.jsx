@@ -148,7 +148,7 @@ const SubjectDetail = () => {
         </div>
 
         {/* Baseline Assessment */}
-        {storeAllLession?.user_subscription_status && (
+        {!storeAllLession?.user_subscription_status && (
           <div className="assessment-result">
             <div className="payment-card">
               <div className="payment-left">
