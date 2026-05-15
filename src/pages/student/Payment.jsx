@@ -95,7 +95,7 @@ const Payment = () => {
   );
 
   const makePaymentAction = async () => {
-    const subjectId = allSubject[0]?.id;
+    const subjectId = allSubject[0]?.id || 1;
 
     if (!subjectId) return;
     try {

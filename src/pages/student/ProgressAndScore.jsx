@@ -32,20 +32,22 @@ const ProgressAndScore = () => {
 
   useEffect(() => {
     if (selectedSubject) {
-      dispatch(getUserProgress({ subject_id: allSubject?.[0]?.id }));
-      dispatch(subjectWiseProgress({ subject_id: allSubject?.[0]?.id }));
+      dispatch(getUserProgress({ subject_id: allSubject?.[0]?.id || 1 }));
+      dispatch(subjectWiseProgress({ subject_id: allSubject?.[0]?.id || 1 }));
     }
   }, [selectedSubject]);
 
   useEffect(() => {
     if (selectedProgressSubject) {
-      dispatch(subjectWiseQuizProgress({ subject_id: allSubject?.[0]?.id }));
+      dispatch(
+        subjectWiseQuizProgress({ subject_id: allSubject?.[0]?.id || 1 })
+      );
     }
   }, [selectedProgressSubject]);
 
   useEffect(() => {
     if (allSubject) {
-      setSelectedProgressSubject(allSubject[0]?.id);
+      setSelectedProgressSubject(allSubject[0]?.id || 1);
     }
   }, [allSubject]);
 
