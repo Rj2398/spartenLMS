@@ -47,12 +47,14 @@ const CreateAccount = () => {
   const validation = () => {
     let newErrors = {};
 
-    if (!formData?.full_name?.trim()) {
-      newErrors.full_name = "Full name is required";
-    } else if (!/^[A-Za-z\s]+$/.test(formData.full_name)) {
-      newErrors.full_name = "Full name should contain only letters";
-    }
+    const emailRegex =
+      /^[a-zA-Z0-9._%+-]+@(gmail|outlook|microsoft|mail|yopmail|yahoo)\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
 
+    if (!formData?.email?.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address";
+    }
     if (!formData?.email?.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
