@@ -16,6 +16,7 @@ import {
   setCurrentSubject,
 } from "../../redux/slices/student/subjectSlice";
 
+const API_BASE_URL = import.meta.env.VITE_BASE_URL;
 const SubjectDetail = () => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -190,8 +191,6 @@ const SubjectDetail = () => {
         <div className="sub-lessons-list">
           <h3>Lessons</h3>
 
-          {console.log("lessonMap", lessonMap)}
-
           {lessonMap && lessonMap.length > 0 ? (
             lessonMap?.map((lesson, index) => (
               <div
@@ -307,7 +306,10 @@ const SubjectDetail = () => {
 
                           // Click tabhi kaam karega jab logic true ho
                           if (isFirst || isPrevDone || isCurrentDone) {
-                            window.open(lesson?.lesson_pdf, "_blank");
+                            window.open(
+                              API_BASE_URL + lesson?.lesson_pdf,
+                              "_blank"
+                            );
                             handleCompleteLesson(lesson?.id);
                           }
                         }}
