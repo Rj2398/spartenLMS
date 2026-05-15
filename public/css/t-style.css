@@ -1623,7 +1623,7 @@ a.disabled {
   }
 
   &.retake {
-    background-color: #f28100;
+    background-color: #ef4343;
     border: none;
     color: #fff;
   }

@@ -215,7 +215,9 @@ const SubjectDetail = () => {
                         ? "locked-not-started"
                         : lesson?.lesson_quiz_status == "completed"
                         ? "completed"
-                        : lesson?.lesson_quiz_status == "in-progress"
+                        : lesson?.lesson_quiz_status == "retake"
+                        ? "retake"
+                        : lesson?.lesson_quiz_status == "in_process"
                         ? "in-progress"
                         : "review-again"
                     }.svg`}
@@ -381,6 +383,7 @@ const SubjectDetail = () => {
                       </div>
                     ) : (
                       <div>
+                                             {" "}
                         <button
                           disabled={lesson?.lesson_quiz_status === "locked"}
                           onClick={() => {
@@ -393,11 +396,15 @@ const SubjectDetail = () => {
                             ) {
                               navigate(
                                 `/student/baseline-assignment/${lesson?.subject_id}`,
+
                                 {
                                   state: {
                                     subjectId: lesson?.subject_id,
+
                                     lessonTitle: lesson?.title,
+
                                     lessonId: lesson?.id,
+
                                     quizStatus:
                                       status === "start_quiz" ||
                                       status === "in_process"
@@ -410,6 +417,7 @@ const SubjectDetail = () => {
                               navigate(`/student/assesment-review`, {
                                 state: {
                                   subjectId: lesson?.subject_id,
+
                                   lessonId: lesson?.id,
                                 },
                               });
@@ -432,23 +440,34 @@ const SubjectDetail = () => {
                           }`}
                           style={{
                             padding: "12px",
+
                             borderRadius: "10px",
-                            border: "none",
-                            // cursor: subscriptionStatus ? "pointer" : "not-allowed",
+
+                            border: "none", // cursor: subscriptionStatus ? "pointer" : "not-allowed",
+
                             opacity:
                               lesson?.lesson_quiz_status === "locked" ? "" : 1,
                           }}
                         >
+                                           
                           {lesson?.lesson_quiz_status === "locked"
                             ? "Locked Quiz"
                             : lesson?.lesson_quiz_status === "completed"
                             ? "Quiz Completed"
+                            : lesson?.lesson_quiz_status === "retake"
+                            ? "Retake Quiz"
+                            : lesson?.lesson_quiz_status === "in_process"
+                            ? "In Progress"
                             : lesson?.lesson_quiz_status
                             ? lesson.lesson_quiz_status
+
                                 .replace(/_/g, " ")
+
                                 .replace(/\b\w/g, (char) => char.toUpperCase())
                             : "Start Quiz"}
+                                             
                         </button>
+                                     
                       </div>
                     )}
                   </div>

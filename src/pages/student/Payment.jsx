@@ -41,6 +41,8 @@ import toast from "react-hot-toast";
 //   // ... more data
 // ];
 const Payment = () => {
+  const { storeAllLession } = useSelector((state) => state.lession);
+
   const dispatch = useDispatch();
   const { allSubject } = useSelector((state) => state.subject);
   const itemsPerPage = 5;
@@ -208,26 +210,29 @@ const Payment = () => {
             Track your payment status
           </span>
         </div>
-        <div style={{ marginTop: "20px" }}>
-          <h1
-            style={{
-              display: "inline-block",
-              backgroundColor: "#4126A8",
-              color: "#ffffff",
-              padding: "12px 24px",
-              borderRadius: "8px",
-              fontSize: "16px",
-              fontWeight: "600",
-              cursor: "pointer",
-              textAlign: "center",
-              border: "none",
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            }}
-            onClick={() => makePaymentAction()}
-          >
-            Pay Now
-          </h1>
-        </div>
+
+        {!storeAllLession?.user_subscription_status && (
+          <div style={{ marginTop: "20px" }}>
+            <h1
+              style={{
+                display: "inline-block",
+                backgroundColor: "#4126A8",
+                color: "#ffffff",
+                padding: "12px 24px",
+                borderRadius: "8px",
+                fontSize: "16px",
+                fontWeight: "600",
+                cursor: "pointer",
+                textAlign: "center",
+                border: "none",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+              onClick={() => makePaymentAction()}
+            >
+              Pay Now
+            </h1>
+          </div>
+        )}
       </div>
 
       <div className="my-subjects">
