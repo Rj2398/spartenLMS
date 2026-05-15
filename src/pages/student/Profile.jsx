@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Modal, Spinner, Form } from "react-bootstrap";
 import { logout } from "../../redux/slices/authSlice";
 import toast from "react-hot-toast";
+import OtpModal from "../../components/student/OtpModal";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { profileData, loading } = useSelector((state) => state.student);
   // const [showModal, setShowModal] = useState(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [originalEmail, setOriginalEmail] = useState("");
   const [updateEmail, setUpdateEmail] = useState("");
@@ -76,7 +77,11 @@ const Profile = () => {
       ).unwrap();
       if (resultAction.success && isEditing) {
         sessionStorage.setItem("updateEmail", formData.email);
-        navigate("/verify", { state: { updateemail: formData.email } });
+
+        setIsModalOpen(true);
+        // navigate("/verify-email-profile", {
+        //   state: { updateemail: formData.email },
+        // });
       }
     } catch (error) {
       console.error("Error verifying email:", error);
@@ -351,6 +356,12 @@ const Profile = () => {
           </Button>
         </Modal.Footer>
       </Modal> */}
+
+      <OtpModal
+        isOpen={isModalOpen}
+        email={formData.email}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };

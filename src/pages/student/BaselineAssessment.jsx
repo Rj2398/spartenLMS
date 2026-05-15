@@ -223,7 +223,7 @@ const BaselineAssessment = () => {
               </Link>
             ) : (
               <button type="submit" className="finish-cta">
-                Finish Baseline Assessment
+                Finish Lesson
               </button>
             )}
           </div>
@@ -262,7 +262,7 @@ const BaselineAssessment = () => {
             <div className="delete-pop-wrap">
               <div className="delete-pop-inner text-center ">
                 <p style={{ fontWeight: "700" }}>
-                  Are you sure you want to quit this Baseline Assessment?
+                  Are you sure you want to quit this quiz?
                 </p>
               </div>
               <div className="delete-pop-btn d-flex justify-content-end gap-3 mt-3 pe-3">
@@ -280,7 +280,7 @@ const BaselineAssessment = () => {
                   Cancel
                 </Button>
                 <Button
-                type="submit"
+                  type="submit"
                   variant="danger"
                   style={{ border: "none" }}
                   onClick={() => navigate("/student/dashboard")}

@@ -43,6 +43,8 @@ const AppRouter = () => (
       {/* 2. PROTECTED STUDENT ROUTES (isPrivate={true}) 
           Redirects to / if user is NOT logged in */}
       <Route element={<ProtectedRoute isPrivate={true} />}>
+        {/* <Route path="/verify-email-profile" element={<OtpVerification />} /> */}
+
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/student/payment-cancel" element={<PaymentFailed />} />
         <Route element={<StudentLayout />}>
