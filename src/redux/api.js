@@ -87,7 +87,7 @@ export const subjectWiseProgress = (formData) =>
   API.post(`/user-lesson-progress`, formData);
 export const getProfile = () => API.post(`/view-profile`);
 export const updateProfile = (formData) =>
-  API.post(`/update-profile`, formData);
+  API.post(`/update-user-profile`, formData);
 
 // --------
 export const getAllLession = (formData) =>
