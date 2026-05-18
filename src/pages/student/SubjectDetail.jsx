@@ -133,7 +133,7 @@ const SubjectDetail = () => {
                 className="progress-bar"
                 style={{
                   width: `${(storeAllLession?.subject?.completed_lessons_count /
-                      storeAllLession?.subject?.get_lessons_count) *
+                    storeAllLession?.subject?.get_lessons_count) *
                     100 || 0
                     }%`,
                 }}
@@ -214,15 +214,15 @@ const SubjectDetail = () => {
                   <span>{index + 1}</span>
                   <img
                     src={`/images/subject-detail/sub-lessons/${lesson?.lesson_quiz_status == "start_quiz" ||
-                        lesson?.lesson_quiz_status == "locked"
-                        ? "locked-not-started"
-                        : lesson?.lesson_quiz_status == "completed"
-                          ? "completed"
-                          : lesson?.lesson_quiz_status == "retake"
-                            ? "review-again"
-                            : lesson?.lesson_quiz_status == "in_process"
-                              ? "in-progress"
-                              : ""
+                      lesson?.lesson_quiz_status == "locked"
+                      ? "locked-not-started"
+                      : lesson?.lesson_quiz_status == "completed"
+                        ? "completed"
+                        : lesson?.lesson_quiz_status == "retake"
+                          ? "review-again"
+                          : lesson?.lesson_quiz_status == "in_process"
+                            ? "in-progress"
+                            : ""
                       }.svg`}
                     alt={lesson?.lesson_quiz_status}
                   />
@@ -291,12 +291,12 @@ const SubjectDetail = () => {
 
                     <div
                       className={`manage-sub-cta ${index === 0 ||
-                          lessonMap[index - 1]?.lesson_status === "completed" ||
-                          lesson?.lesson_status === "completed"
-                          ? lesson?.lesson_status === "completed"
-                            ? "completed"
-                            : "start_lesson"
-                          : "disabled-lesson"
+                        lessonMap[index - 1]?.lesson_status === "completed" ||
+                        lesson?.lesson_status === "completed"
+                        ? lesson?.lesson_status === "completed"
+                          ? "completed"
+                          : "start_lesson"
+                        : "disabled-lesson"
                         }`}
                     >
                       <Link
@@ -432,8 +432,9 @@ const SubjectDetail = () => {
 
                                     lessonId: lesson?.id,
 
+                                  
                                     quizStatus:
-                                      checkRetake === "first"
+                                      checkRetake === "first" || checkRetake === null
                                         ? status === "start_quiz" || status === "in_process"
                                           ? "start"
                                           : status === "retake"
@@ -443,7 +444,7 @@ const SubjectDetail = () => {
                                           ? status === "in_process"
                                             ? "retake"
                                             : ""
-                                          : "",
+                                          : ""
                                   },
                                 }
                               );
@@ -460,16 +461,16 @@ const SubjectDetail = () => {
                           className={`status ${["not_started", "locked", ""].includes(
                             lesson?.lesson_quiz_status
                           )
-                              ? "locked"
-                              : lesson?.lesson_quiz_status === "start_quiz"
-                                ? "start_quiz"
-                                : lesson?.lesson_quiz_status === "completed"
-                                  ? "completed"
-                                  : lesson?.lesson_quiz_status === "in_process"
-                                    ? "in-progress"
-                                    : lesson?.lesson_quiz_status === "retake"
-                                      ? "retake"
-                                      : "locked"
+                            ? "locked"
+                            : lesson?.lesson_quiz_status === "start_quiz"
+                              ? "start_quiz"
+                              : lesson?.lesson_quiz_status === "completed"
+                                ? "completed"
+                                : lesson?.lesson_quiz_status === "in_process"
+                                  ? "in-progress"
+                                  : lesson?.lesson_quiz_status === "retake"
+                                    ? "retake"
+                                    : "locked"
                             }`}
                           style={{
                             padding: "12px",
