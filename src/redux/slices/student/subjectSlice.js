@@ -188,8 +188,25 @@ const subjectSlice = createSlice({
           action.payload?.message || "Failed to fetch client information";
       })
 
+      // .addCase(getAllQuestion.pending, (state) => {
+      //   state.loading = false;
+      //   state.error = null;
+      // })
+      // .addCase(getAllQuestion.fulfilled, (state, action) => {
+      //   state.loading = false;
+      //   state.subjectDetail = action.payload?.data?.subject_details;
+      //   state.allSubjectQuestion = action.payload?.data?.quiz_data;
+      //   state.attemptId = action.payload?.data?.attempt_id;
+      // })
+      // .addCase(getAllQuestion.rejected, (state, action) => {
+      //   state.loading = false;
+      //   state.error =
+      //     action.payload?.message || "Failed to fetch client information";
+      // })
+
+        // Inside your extraReducers:
       .addCase(getAllQuestion.pending, (state) => {
-        state.loading = false;
+        state.loading = true; // ✅ FIXED: Turn loading ON when request starts
         state.error = null;
       })
       .addCase(getAllQuestion.fulfilled, (state, action) => {
@@ -200,9 +217,9 @@ const subjectSlice = createSlice({
       })
       .addCase(getAllQuestion.rejected, (state, action) => {
         state.loading = false;
-        state.error =
-          action.payload?.message || "Failed to fetch client information";
+        state.error = action.payload?.message || "Failed to fetch questions";
       })
+      
       .addCase(paymentInitiate.pending, (state) => {
         state.loading = false;
         state.error = null;
