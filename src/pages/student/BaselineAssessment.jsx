@@ -19,7 +19,7 @@ const BaselineAssessment = () => {
   //   // 1. Dynamic IDs and Titles
   const lessonId = location.state?.lessonId;
   const subjectId = location.state?.subjectId || subject_id;
-  const { allSubjectQuestion, subjectDetail, attemptId } = useSelector(
+  const { allSubjectQuestion, subjectDetail, attemptId ,loading} = useSelector(
     (state) => state.subject
   );
   // console.log(attemptId, "subjectDetailsubjectDetail");
@@ -31,6 +31,7 @@ const BaselineAssessment = () => {
   const [showQuitModal, setShowQuitModal] = useState(false);
   const [answers, setAnswers] = useState({});
   const [lessionWiseDetails, setLessonWiseDetails] = useState();
+  const [toggleState, setToggleState]= useState(false)
 const hasFetched = useRef(false);
   useEffect(() => {
     setLessonWiseDetails(lessionWiseDetailsFromStore);
@@ -49,22 +50,28 @@ const hasFetched = useRef(false);
 //     })
 //   );
 // }, []);
-
-const fetchedRef = useRef(false);
-
-useEffect(() => {
-  if (fetchedRef.current) return;
-
-  fetchedRef.current = true;
-
-  dispatch(
-    getAllQuestion({
-      subject_id: subject_id,
-      lesson_id: lessonId,
-      quiz_status: quizStatus,
-    })
-  );
-}, [dispatch, subject_id, lessonId, quizStatus]);
+  useEffect(() => {
+    // 2. If questions already exist in Redux, or if the API is already loading, STOP!
+    // if (allSubjectQuestion && allSubjectQuestion.length > 0) {
+    //   console.log("🛑 API Blocked: Data already exists in Redux store!");
+    //   return;
+    // }
+ 
+    if (loading) {
+      console.log("🛑 API Blocked: Request is already in progress!");
+      return;
+    }
+ 
+    console.log("🚀 DISPATCHING API NOW!");
+    dispatch(
+      getAllQuestion({
+        subject_id: subject_id,
+        lesson_id: lessonId,
+        quiz_status: quizStatus,
+      })
+    );
+    setToggleState(prev=>!prev)
+  }, [toggleState]);
 
   // Initialize answers when questions are loaded
   useEffect(() => {
