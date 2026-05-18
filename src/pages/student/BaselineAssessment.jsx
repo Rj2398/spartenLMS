@@ -1,5 +1,5 @@
 // //code commented by rajan 12-05-2026
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,20 +31,45 @@ const BaselineAssessment = () => {
   const [showQuitModal, setShowQuitModal] = useState(false);
   const [answers, setAnswers] = useState({});
   const [lessionWiseDetails, setLessonWiseDetails] = useState();
-
+const hasFetched = useRef(false);
   useEffect(() => {
     setLessonWiseDetails(lessionWiseDetailsFromStore);
   }, [lessionWiseDetailsFromStore]);
 
-  useEffect(() => {
-    dispatch(
-      getAllQuestion({
-        subject_id: subject_id,
-        lesson_id: lessonId,
-        quiz_status: quizStatus,
-      })
-    );
-  }, []); // Added dependencies to fix logic mismatch
+// useEffect(() => {
+//   if (hasFetched.current) return;
+
+//   hasFetched.current = true;
+
+//   dispatch(
+//     getAllQuestion({
+//       subject_id: subject_id,
+//       lesson_id: lessonId,
+//       quiz_status: quizStatus,
+//     })
+//   );
+// }, []);
+const apiCalledRef = useRef(false);
+
+useEffect(() => {
+  if (
+    apiCalledRef.current ||
+    !subject_id ||
+    !lessonId
+  ) {
+    return;
+  }
+
+  apiCalledRef.current = true;
+
+  dispatch(
+    getAllQuestion({
+      subject_id,
+      lesson_id: lessonId,
+      quiz_status: quizStatus,
+    })
+  );
+}, [subject_id, lessonId, quizStatus]);
 
   // Initialize answers when questions are loaded
   useEffect(() => {

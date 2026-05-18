@@ -32,16 +32,16 @@ const SummativeAssessment = () => {
   const [showQuitModal, setShowQuitModal] = useState(false);
   const [answers, setAnswers] = useState({});
 
-  useEffect(() => {
-    dispatch(getAllQuestion({ subject_id: subjectId, type: "summative" }));
-    dispatch(
-      getAttemptId({
-        subject_id: subjectId,
-        quiz_type: "summative",
-        ...(isRetake ? { retake: 1 } : {}),
-      })
-    );
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // dispatch(getAllQuestion({ subject_id: subjectId, type: "summative" }));
+  //   dispatch(
+  //     getAttemptId({
+  //       subject_id: subjectId,
+  //       quiz_type: "summative",
+  //       ...(isRetake ? { retake: 1 } : {}),
+  //     })
+  //   );
+  // }, [dispatch]);
 
   // Initialize answers when questions are loaded
   useEffect(() => {
