@@ -88,7 +88,7 @@ const studentSlice = createSlice({
       })
 
       .addCase(getProfile.pending, (state) => {
-        state.loading = true;
+        state.loading =false;
         state.error = null;
       })
       .addCase(getProfile.fulfilled, (state, action) => {
@@ -102,7 +102,7 @@ const studentSlice = createSlice({
       })
 
       .addCase(updateProfile.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
@@ -119,7 +119,7 @@ const studentSlice = createSlice({
       })
 
       .addCase(verifyUserEmail.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(verifyUserEmail.fulfilled, (state, action) => {
@@ -135,7 +135,7 @@ const studentSlice = createSlice({
       })
 
       .addCase(updateUserEmail.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(updateUserEmail.fulfilled, (state, action) => {

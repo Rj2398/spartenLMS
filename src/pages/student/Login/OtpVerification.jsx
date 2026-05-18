@@ -42,7 +42,7 @@ const OtpVerification = () => {
 
   const [openModal, setOpenModal] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [timer, setTimer] = useState(119);
+  const [timer, setTimer] = useState(60);
   const [canResend, setCanResend] = useState(false);
   const [otpError, setOtpError] = useState(false);
   const [showProfileCreated, setShowProfileCreated] = useState(false);

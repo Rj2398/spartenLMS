@@ -38,17 +38,22 @@ const NewPassword = () => {
   const validation = () => {
     const newErrors = {};
 
-    if (!formData.password.trim()) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Minimum 6 characters required";
-    }
+  const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-    if (!formData.confirmPassword.trim()) {
-      newErrors.confirmPassword = "Confirm password is required";
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
-    }
+      if (!formData.password.trim()) {
+        newErrors.password = "Password is required";
+      } else if (!passwordRegex.test(formData.password)) {
+        newErrors.password = "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character";
+      }
+
+      if (!formData.confirmPassword.trim()) {
+        newErrors.confirmPassword = "Confirm password is required";
+      } else if (!passwordRegex.test(formData.confirmPassword)) {
+        newErrors.confirmPassword = "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character";
+      } else if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = "Passwords do not match";
+      }
 
     setError(newErrors);
     return Object.keys(newErrors).length === 0;

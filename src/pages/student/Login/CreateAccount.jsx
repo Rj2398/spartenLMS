@@ -47,6 +47,13 @@ const CreateAccount = () => {
   const validation = () => {
     let newErrors = {};
 
+        if (!formData?.full_name?.trim()) {
+        newErrors.full_name = "Full name is required";
+      } else if (!/^[A-Za-z\s]+$/.test(formData.full_name)) {
+        newErrors.full_name =
+          "Full name should contain only letters";
+      }
+
     const emailRegex =
       /^[a-zA-Z0-9._%+-]+@(gmail|outlook|microsoft|mail|yopmail|yahoo)\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
 
@@ -61,31 +68,23 @@ const CreateAccount = () => {
       newErrors.email = "Invalid email format";
     }
 
-    // if (!formData?.password?.trim()) {
-    //   newErrors.password = "Password is required";
-    // } else if (formData.password.length < 6) {
-    //   newErrors.password = "Password must be at least 6 characters";
-    // }
+  const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-    // if (!formData?.newPassword?.trim()) {
-    //   newErrors.newPassword = "Password is required";
-    // } else if (formData.password.length < 6) {
-    //   newErrors.newPassword = "Password must be at least 6 characters";
-    // }
+if (!formData?.password?.trim()) {
+  newErrors.password = "Password is required";
+} else if (!passwordRegex.test(formData.password)) {
+  newErrors.password =  "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character";
+}
 
-    if (!formData?.password?.trim()) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
-    }
-
-    if (!formData?.newPassword?.trim()) {
-      newErrors.newPassword = "Confirm Password is required";
-    } else if (formData.newPassword.length < 6) {
-      newErrors.newPassword = "Password must be at least 6 characters";
-    } else if (formData.password !== formData.newPassword) {
-      newErrors.newPassword = "Password mismatch";
-    }
+if (!formData?.newPassword?.trim()) {
+  newErrors.newPassword = "Confirm Password is required";
+} else if (!passwordRegex.test(formData.newPassword)) {
+  newErrors.newPassword = "Invalid password format";
+} else if (formData.password !== formData.newPassword) {
+  newErrors.newPassword = "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character";
+}
+ 
 
     setErrors(newErrors);
 
@@ -176,10 +175,10 @@ const CreateAccount = () => {
             </div>
             <div className="form-inner">
               <h3 className="log-in">Create Account</h3>
-              <p className="login">
+              {/* <p className="login">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod{" "}
-              </p>
+              </p> */}
               <form onSubmit={handleSubmit}>
                 <div className="label-data mb-2 position-relative">
                   <div className="icon">
@@ -270,7 +269,7 @@ const CreateAccount = () => {
                   Signup
                 </button>
 
-                <div className="signup">
+                <div className="signup" style={{color:'black'}}>
                   Already have an account? <Link to="/"> Login</Link>
                 </div>
               </form>

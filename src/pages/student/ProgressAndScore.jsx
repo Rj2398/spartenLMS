@@ -348,15 +348,26 @@ const ProgressAndScore = () => {
                         className="progress-bar"
                         style={{
                           width: `${item?.quiz_score}%`,
-                          backgroundColor: [
-                            "not_started",
-                            "not_completed",
-                            "in_progress",
-                            "retake",
-                            "review",
-                          ].includes(item?.quiz_status)
-                            ? "#F28100"
-                            : "#16a34a",
+                          // backgroundColor: [
+                          //   "not_started",
+                          //   "not_completed",
+                          //   "in_progress",
+                          //   "retake",
+                          //   "review",
+                          // ].includes(item?.quiz_status)
+                          //   ? "#F28100"
+                          //   : "#16a34a",
+
+                          backgroundColor: item?.quiz_status == "retake"
+                          ? "#ef4343"
+                          : item?.quiz_status == "in_process"
+                          ? "#F28100"
+                          : item?.quiz_status == "completed"
+                          ? "#16a34a"
+                          : item?.quiz_status == "not_started"|| item?.quiz_status == "locked"
+                          ? "grey"
+                          :""
+                            
                         }}
                       ></div>
                     </div>
@@ -401,10 +412,14 @@ const ProgressAndScore = () => {
                         ? "review"
                         : item?.quiz_status == "in_process"
                         ? "review"
+                        : item?.quiz_status == "retake"
+                        ? "retake"
                         : ""
                     }`}
                     style={{
                       backgroundColor:
+                       item?.quiz_status == "retake"
+                        ? "#ef4343":
                         item?.quiz_status === "not_started" ||
                         item?.quiz_status === "locked" ||
                         item?.quiz_status === "undefined" ||
@@ -424,10 +439,10 @@ const ProgressAndScore = () => {
 
                 <td>
                   {" "}
-                  {item?.quiz_status === "completed" && (
+                  {item?.quiz_status !== "not_started" && (
                     <a
-                      style={{ cursor: "pointer" }}
-                      className="details-cta"
+                      style={{ cursor: "pointer",color:'#4126A8' ,fontSize:'16px'}}
+                      // className="details-cta"
                       onClick={() =>
                         navigate(
                           `/student/assesment-review`,
@@ -442,7 +457,7 @@ const ProgressAndScore = () => {
                       }
                     >
                       <img
-                        src="/images/subject-detail/hugeicons_view.png"
+                        src="/images/subject-detail/hugeicons_view.svg"
                         alt="view-icon"
                         style={{ width: "25px", marginRight: "10px" }}
                       />

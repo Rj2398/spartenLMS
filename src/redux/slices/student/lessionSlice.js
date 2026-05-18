@@ -109,7 +109,7 @@ const lessionSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getLessionSlice.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getLessionSlice.fulfilled, (state, action) => {
@@ -125,7 +125,7 @@ const lessionSlice = createSlice({
       //details of lession
 
       .addCase(getLessionDetailSlice.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getLessionDetailSlice.fulfilled, (state, action) => {
@@ -139,7 +139,7 @@ const lessionSlice = createSlice({
       })
       //complete lesson
       .addCase(startLession.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(startLession.fulfilled, (state, action) => {
@@ -153,7 +153,7 @@ const lessionSlice = createSlice({
       })
       //complete startQuiz
       .addCase(startQuiz.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(startQuiz.fulfilled, (state, action) => {
@@ -168,7 +168,7 @@ const lessionSlice = createSlice({
       //lesson submit response
 
       .addCase(lessionSubmit.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(lessionSubmit.fulfilled, (state, action) => {
@@ -183,7 +183,7 @@ const lessionSlice = createSlice({
       //complete lesson
 
       .addCase(completeLesson.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(completeLesson.fulfilled, (state, action) => {
@@ -199,7 +199,7 @@ const lessionSlice = createSlice({
       //retrive lesson response
 
       .addCase(retriveLesson.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(retriveLesson.fulfilled, (state, action) => {
@@ -213,7 +213,7 @@ const lessionSlice = createSlice({
       })
       
       .addCase(getWhiteboard.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getWhiteboard.fulfilled, (state, action) => {

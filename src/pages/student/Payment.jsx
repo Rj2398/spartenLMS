@@ -172,7 +172,7 @@ const Payment = () => {
 
         // Forces the browser to download instead of navigating
         link.setAttribute("download", `invoice_${id}.pdf`);
-        link.setAttribute("target", "_blank"); // Fallback safety for cross-origin URLs
+        // link.setAttribute("target", "_blank"); // Fallback safety for cross-origin URLs
 
         // 3. Append, click, and clean up
         document.body.appendChild(link);
@@ -333,19 +333,20 @@ const Payment = () => {
                       
                     )} */}
 
-                    <button
-                      style={{
-                        background: "#C6C6C6",
-                        border: "none",
-                        padding: "12px",
-                        borderRadius: "20px",
-                        fontSize: "15px",
-                        cursor: "pointer",
-                        color: "#4B5563",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                      }}
+                   <button
+                    style={{
+                      background: "#C6C6C6",
+                      border: "none",
+                      padding: "12px",
+                      borderRadius: "20px",
+                      fontSize: "15px",
+                      cursor: "pointer",
+                      color: item?.invoice ? "#4126A8" : "#4B5563",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+
                       onClick={() => downloadPdf(item?.id)}
                     >
                       <img

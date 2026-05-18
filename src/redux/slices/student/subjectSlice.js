@@ -189,7 +189,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(getAllQuestion.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getAllQuestion.fulfilled, (state, action) => {
@@ -204,7 +204,7 @@ const subjectSlice = createSlice({
           action.payload?.message || "Failed to fetch client information";
       })
       .addCase(paymentInitiate.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(paymentInitiate.fulfilled, (state, action) => {
@@ -218,7 +218,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(paymentHistory.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(paymentHistory.fulfilled, (state, action) => {
@@ -232,7 +232,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(submitAnswer.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(submitAnswer.fulfilled, (state, action) => {
@@ -247,7 +247,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(getSubmittedAnswer.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getSubmittedAnswer.fulfilled, (state, action) => {
@@ -261,7 +261,7 @@ const subjectSlice = createSlice({
       })
       //
       .addCase(downloadPDf.pending, (state) => {
-        state.loading = true;
+        state.loading =false;
         state.error = null;
       })
       .addCase(downloadPDf.fulfilled, (state, action) => {
@@ -274,7 +274,7 @@ const subjectSlice = createSlice({
           action.payload?.message || "Failed to fetch client information";
       })
       .addCase(getUserProgress.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getUserProgress.fulfilled, (state, action) => {
@@ -288,7 +288,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(subjectWiseProgress.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(subjectWiseProgress.fulfilled, (state, action) => {
@@ -302,7 +302,7 @@ const subjectSlice = createSlice({
       })
 
       .addCase(subjectWiseQuizProgress.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(subjectWiseQuizProgress.fulfilled, (state, action) => {

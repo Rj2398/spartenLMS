@@ -247,7 +247,7 @@ const BaselineAssessment = () => {
           }}
         >
           <div className="modal-heading">
-            <h2>Quit Assessment</h2>
+            <h2>Quit Lesson</h2>
             <button
               type="button"
               className="close close-btn-front"
@@ -281,9 +281,11 @@ const BaselineAssessment = () => {
                 </Button>
                 <Button
                   type="submit"
-                  variant="danger"
-                  style={{ border: "none" }}
-                  onClick={() => navigate("/student/dashboard")}
+                  // variant="danger"
+                  style={{ border: "none",padding: "9px 25px",
+                        background: "linear-gradient(92.08deg, #4126a8 12.97%, #1b0866 103.35%)"
+                      }}
+                  onClick={() => navigate(`/student/subject-detail?=${subject_id||1}`)}
                 >
                   Yes, sure
                 </Button>

@@ -71,7 +71,8 @@ const AssessmentReview = () => {
               <ul style={{ color: "#4126A8" }}>
                 <li style={{ color: "#4126A8" }}>
                   <img src="../images/subject-detail/quizzes.svg" alt="" />
-                  {assessmentInfo.total_lesson_quizzes} Quizzes
+                  {/* {assessmentInfo.total_lesson_quizzes} Quizzes */}
+                  {staticData?.length} Quizzes
                 </li>
               </ul>
               <b

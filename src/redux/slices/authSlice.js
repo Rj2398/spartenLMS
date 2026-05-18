@@ -218,7 +218,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(signIn.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(signIn.fulfilled, (state, action) => {
@@ -243,7 +243,7 @@ const authSlice = createSlice({
       })
 
       .addCase(signUp.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -265,7 +265,7 @@ const authSlice = createSlice({
       })
 
       .addCase(verifyOtp.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -283,7 +283,7 @@ const authSlice = createSlice({
       })
 
       .addCase(resendOtp.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -304,7 +304,7 @@ const authSlice = createSlice({
       })
 
       .addCase(forgotPassword.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -325,7 +325,7 @@ const authSlice = createSlice({
       })
 
       .addCase(resetPassword.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -347,7 +347,7 @@ const authSlice = createSlice({
       })
 
       .addCase(verifyForgotPasswordOtp.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
 
@@ -366,7 +366,7 @@ const authSlice = createSlice({
       })
 
       .addCase(logout.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(logout.fulfilled, (state, action) => {
@@ -396,7 +396,7 @@ const authSlice = createSlice({
       })
 
       .addCase(getMyDetails.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getMyDetails.fulfilled, (state, action) => {
@@ -421,7 +421,7 @@ const authSlice = createSlice({
       })
 
       .addCase(getTermsCondition.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getTermsCondition.fulfilled, (state, action) => {
@@ -433,7 +433,7 @@ const authSlice = createSlice({
       })
 
       .addCase(getPrivacyPolicy.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(getPrivacyPolicy.fulfilled, (state, action) => {

@@ -98,10 +98,15 @@ const SubjectDetail = () => {
             </span>
           </h1>
           <div className="sub-pro">
-            <p>
+            {
+              storeAllLession?.subject?.description && (
+                  <p>
               {storeAllLession?.subject?.description ||
                 "No description available."}
             </p>
+              )
+            }
+          
             <h1 className="mb-0">
               <span>
                 {storeAllLession?.subject?.completed_lessons_count} /
@@ -216,22 +221,24 @@ const SubjectDetail = () => {
                         : lesson?.lesson_quiz_status == "completed"
                         ? "completed"
                         : lesson?.lesson_quiz_status == "retake"
-                        ? "retake"
+                        ? "review-again"
                         : lesson?.lesson_quiz_status == "in_process"
                         ? "in-progress"
-                        : "review-again"
+                        : ""
                     }.svg`}
                     alt={lesson?.lesson_quiz_status}
                   />
                 </div>
                 <div className="lesson-data">
                   <h2>
-                    <Link
+                    {/* <Link
+                    
                       to="#"
                       onClick={() => window.open(lesson?.lesson_pdf, "_blank")}
                     >
                       {lesson?.title}
-                    </Link>
+                    </Link> */}
+                     {lesson?.title}
                   </h2>
                   <p>{lesson?.desc}</p>
                 </div>

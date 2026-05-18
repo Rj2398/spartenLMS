@@ -41,10 +41,20 @@ const Login = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
+    // if (!formData?.password?.trim()) {
+    //   newErrors.password = "Password is required";
+    // } else if (formData.password.length < 6) {
+    //   newErrors.password = "Password must be at least 6 characters";
+    // }
+
     if (!formData?.password?.trim()) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+    } else if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(
+        formData.password
+      )
+    ) {
+      newErrors.password = "Invalid password format";
     }
 
     setErrors(newErrors);
@@ -97,10 +107,10 @@ const Login = () => {
 
           <div className="form-inner">
             <h3 className="log-in">Login</h3>
-            <p className="login">
+            {/* <p className="login">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod
-            </p>
+            </p> */}
 
             {/* ✅ FIXED FORM */}
             <form onSubmit={handleSubmit}>
@@ -163,7 +173,7 @@ const Login = () => {
                 Login
               </button>
 
-              <div className="signup">
+              <div className="signup" style={{color:'black'}}>
                 Don’t have an account? <Link to="/create-account">Sign up</Link>
               </div>
             </form>

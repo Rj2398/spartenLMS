@@ -18,10 +18,13 @@ const Profile = () => {
   const navigate = useNavigate();
   const { profileData, loading } = useSelector((state) => state.student);
   // const [showModal, setShowModal] = useState(false);
+  const [disabled, setDisable] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [originalEmail, setOriginalEmail] = useState("");
   const [updateEmail, setUpdateEmail] = useState("");
+  const [error,setErrors]=useState("")
+
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -31,6 +34,40 @@ const Profile = () => {
   useEffect(() => {
     dispatch(getProfile());
   }, [dispatch]);
+
+useEffect(() => {
+    // 1. Safety check: Ensure profileData and email exist first
+    if (profileData?.email && formData.email) {
+      const isSame =
+        profileData.email.trim().toLowerCase() ===
+        formData.email.trim().toLowerCase();
+ 
+      if (isSame) {
+        setDisable(true);
+      } else {
+        setDisable(false);
+      }
+    } else {
+      // Fallback if data is still loading
+      setDisable(true);
+    }
+  }, [formData.email, profileData]);
+
+
+  const validateProfile = () => {
+  let newErrors = {};
+
+  if (!formData?.full_name?.trim()) {
+    newErrors.full_name = "Full name is required";
+  } else if (!/^[A-Za-z\s]+$/.test(formData.full_name)) {
+    newErrors.full_name =
+      "Full name should contain only letters";
+  }
+
+  setErrors(newErrors);
+
+  return Object.keys(newErrors).length === 0;
+};
 
   useEffect(() => {
     if (profileData) {
@@ -48,23 +85,91 @@ const Profile = () => {
     }
   }, []);
 
-  const handleEdit = (e) => {
-    e.preventDefault();
-    if (isEditing) {
-      dispatch(updateProfile({ full_name: formData.full_name }));
-    }
+  // const handleEdit = (e) => {
+  //   e.preventDefault();
+  //   if(validation()) {
+  //       if (isEditing) {
+  //     dispatch(updateProfile({ full_name: formData.full_name }));
+  //      }
+  //   }else{
+  //     toast.error("validation failed")
+  //   }
+  
+    
 
-    setIsEditing(!isEditing);
+  //   setIsEditing(!isEditing);
 
-    dispatch(getProfile());
-  };
+  //   dispatch(getProfile());
+  // };
+
+
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+     setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: "",
+    }));
   };
+
+  //   const handleEdit = async (e) => {
+  //     e.preventDefault();
+  //      setIsEditing(!isEditing);
+
+  // if (!validation()) {
+  //   toast.error("Validation failed");
+  //   return;
+  // }
+
+  // if (isEditing) {
+  //   await dispatch(
+  //     updateProfile({
+  //       full_name: formData.full_name,
+  //     })
+  //   );
+
+    
+  // }
+  //  dispatch(getProfile());
+
+  // };
+
+const handleEdit = async (e) => {
+  e.preventDefault();
+
+  console.log("isEditing", isEditing);
+
+  if (!isEditing) {
+    setIsEditing(true);
+    return;
+  }
+
+  if (!validateProfile()) {
+    console.log("validation failed");
+    toast.error("Validation failed");
+    return;
+  }
+
+  console.log("API calling");
+
+  const res = await dispatch(
+    updateProfile({
+      full_name: formData.full_name,
+    })
+  );
+
+  console.log("API response", res);
+
+  await dispatch(getProfile());
+
+  setIsEditing(false);
+};
+
+
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
@@ -163,6 +268,10 @@ const Profile = () => {
                   onChange={handleChange}
                   disabled={!isEditing}
                 />
+
+                 {error.full_name && (
+                    <span style={{ color: "red" }}>{error.full_name}</span>
+                  )}
               </div>
               {/* <div className="form-group">
                 <label htmlFor="email">E-mail ID</label>
@@ -218,10 +327,11 @@ const Profile = () => {
                     disabled={!isEditing}
                   />
 
-                  {isEditing &&
+               {isEditing &&
                     formData.email.trim() !== "" &&
                     formData.email !== originalEmail && (
                       <button
+                        disabled={disabled}
                         type="button"
                         style={{
                           color: "white",
@@ -230,6 +340,7 @@ const Profile = () => {
                           padding: "8px 16px",
                           borderRadius: "4px",
                           cursor: "pointer",
+                          opacity: disabled ? 0.5 : 1,
                         }}
                         onClick={handleVerifyEmail}
                       >
