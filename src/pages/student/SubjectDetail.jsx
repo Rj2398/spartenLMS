@@ -100,13 +100,13 @@ const SubjectDetail = () => {
           <div className="sub-pro">
             {
               storeAllLession?.subject?.description && (
-                  <p>
-              {storeAllLession?.subject?.description ||
-                "No description available."}
-            </p>
+                <p>
+                  {storeAllLession?.subject?.description ||
+                    "No description available."}
+                </p>
               )
             }
-          
+
             <h1 className="mb-0">
               <span>
                 {storeAllLession?.subject?.completed_lessons_count} /
@@ -132,18 +132,17 @@ const SubjectDetail = () => {
               <div
                 className="progress-bar"
                 style={{
-                  width: `${
-                    (storeAllLession?.subject?.completed_lessons_count /
+                  width: `${(storeAllLession?.subject?.completed_lessons_count /
                       storeAllLession?.subject?.get_lessons_count) *
-                      100 || 0
-                  }%`,
+                    100 || 0
+                    }%`,
                 }}
                 role="progressbar"
                 aria-valuenow={
                   Math.round(
                     (storeAllLession?.subject?.completed_lessons_count /
                       storeAllLession?.subject?.get_lessons_count) *
-                      100
+                    100
                   ) || 0
                 }
                 aria-valuemin="0"
@@ -214,18 +213,17 @@ const SubjectDetail = () => {
                 <div className="lesson-num-ico">
                   <span>{index + 1}</span>
                   <img
-                    src={`/images/subject-detail/sub-lessons/${
-                      lesson?.lesson_quiz_status == "start_quiz" ||
-                      lesson?.lesson_quiz_status == "locked"
+                    src={`/images/subject-detail/sub-lessons/${lesson?.lesson_quiz_status == "start_quiz" ||
+                        lesson?.lesson_quiz_status == "locked"
                         ? "locked-not-started"
                         : lesson?.lesson_quiz_status == "completed"
-                        ? "completed"
-                        : lesson?.lesson_quiz_status == "retake"
-                        ? "review-again"
-                        : lesson?.lesson_quiz_status == "in_process"
-                        ? "in-progress"
-                        : ""
-                    }.svg`}
+                          ? "completed"
+                          : lesson?.lesson_quiz_status == "retake"
+                            ? "review-again"
+                            : lesson?.lesson_quiz_status == "in_process"
+                              ? "in-progress"
+                              : ""
+                      }.svg`}
                     alt={lesson?.lesson_quiz_status}
                   />
                 </div>
@@ -238,7 +236,7 @@ const SubjectDetail = () => {
                     >
                       {lesson?.title}
                     </Link> */}
-                     {lesson?.title}
+                    {lesson?.title}
                   </h2>
                   <p>{lesson?.desc}</p>
                 </div>
@@ -292,15 +290,14 @@ const SubjectDetail = () => {
                     </div> */}
 
                     <div
-                      className={`manage-sub-cta ${
-                        index === 0 ||
-                        lessonMap[index - 1]?.lesson_status === "completed" ||
-                        lesson?.lesson_status === "completed"
+                      className={`manage-sub-cta ${index === 0 ||
+                          lessonMap[index - 1]?.lesson_status === "completed" ||
+                          lesson?.lesson_status === "completed"
                           ? lesson?.lesson_status === "completed"
                             ? "completed"
                             : "start_lesson"
                           : "disabled-lesson"
-                      }`}
+                        }`}
                     >
                       <Link
                         to="#"
@@ -343,14 +340,14 @@ const SubjectDetail = () => {
                             handleCompleteLesson(lesson?.id);
                           }
                         }}
-                                                style={{
+                        style={{
                           marginRight: "10px",
 
                           background:
                             index === 0 ||
-                            lessonMap[index - 1]?.lesson_status ===
+                              lessonMap[index - 1]?.lesson_status ===
                               "completed" ||
-                            lesson?.lesson_status === "completed"
+                              lesson?.lesson_status === "completed"
                               ? lesson?.lesson_status === "completed"
                                 ? ""
                                 : "" // Agar completed hai toh default (CSS se), warna blue
@@ -358,17 +355,17 @@ const SubjectDetail = () => {
 
                           opacity:
                             index === 0 ||
-                            lessonMap[index - 1]?.lesson_status ===
+                              lessonMap[index - 1]?.lesson_status ===
                               "completed" ||
-                            lesson?.lesson_status === "completed"
+                              lesson?.lesson_status === "completed"
                               ? 1
                               : 0.6,
 
                           pointerEvents:
                             index === 0 ||
-                            lessonMap[index - 1]?.lesson_status ===
+                              lessonMap[index - 1]?.lesson_status ===
                               "completed" ||
-                            lesson?.lesson_status === "completed"
+                              lesson?.lesson_status === "completed"
                               ? "auto"
                               : "none",
                         }}
@@ -382,9 +379,9 @@ const SubjectDetail = () => {
                           style={{
                             color:
                               index === 0 ||
-                              lessonMap[index - 1]?.lesson_status ===
+                                lessonMap[index - 1]?.lesson_status ===
                                 "completed" ||
-                              lesson?.lesson_status === "completed"
+                                lesson?.lesson_status === "completed"
                                 ? "white"
                                 : "#4B5563",
                           }}
@@ -411,11 +408,13 @@ const SubjectDetail = () => {
                       </div>
                     ) : (
                       <div>
-                                             {" "}
+                        {" "}
                         <button
                           disabled={lesson?.lesson_quiz_status === "locked"}
                           onClick={() => {
                             const status = lesson?.lesson_quiz_status;
+
+                            const checkRetake = lesson?.quiz_attempt_type;
 
                             if (
                               ["start_quiz", "in_process", "retake"].includes(
@@ -434,11 +433,17 @@ const SubjectDetail = () => {
                                     lessonId: lesson?.id,
 
                                     quizStatus:
-                                      status === "start_quiz" || status === "in_process"
-                                        ? "start"
-                                        : status === "retake"
-                                        ? "retake"
-                                        : "",
+                                      checkRetake === "first"
+                                        ? status === "start_quiz" || status === "in_process"
+                                          ? "start"
+                                          : status === "retake"
+                                            ? "retake"
+                                            : ""
+                                        : checkRetake === "retake"
+                                          ? status === "in_process"
+                                            ? "retake"
+                                            : ""
+                                          : "",
                                   },
                                 }
                               );
@@ -452,21 +457,20 @@ const SubjectDetail = () => {
                               });
                             }
                           }}
-                          className={`status ${
-                            ["not_started", "locked", ""].includes(
-                              lesson?.lesson_quiz_status
-                            )
+                          className={`status ${["not_started", "locked", ""].includes(
+                            lesson?.lesson_quiz_status
+                          )
                               ? "locked"
                               : lesson?.lesson_quiz_status === "start_quiz"
-                              ? "start_quiz"
-                              : lesson?.lesson_quiz_status === "completed"
-                              ? "completed"
-                              : lesson?.lesson_quiz_status === "in_process"
-                              ? "in-progress"
-                              : lesson?.lesson_quiz_status === "retake"
-                              ? "retake"
-                              : "locked"
-                          }`}
+                                ? "start_quiz"
+                                : lesson?.lesson_quiz_status === "completed"
+                                  ? "completed"
+                                  : lesson?.lesson_quiz_status === "in_process"
+                                    ? "in-progress"
+                                    : lesson?.lesson_quiz_status === "retake"
+                                      ? "retake"
+                                      : "locked"
+                            }`}
                           style={{
                             padding: "12px",
 
@@ -478,25 +482,25 @@ const SubjectDetail = () => {
                               lesson?.lesson_quiz_status === "locked" ? "" : 1,
                           }}
                         >
-                                           
+
                           {lesson?.lesson_quiz_status === "locked"
                             ? "Locked Assessment"
                             : lesson?.lesson_quiz_status === "completed"
-                            ? "Assessment Completed"
-                            : lesson?.lesson_quiz_status === "retake"
-                            ? "Retake Assessment "
-                            : lesson?.lesson_quiz_status === "in_process"
-                            ? "In Progress"
-                            : lesson?.lesson_quiz_status=="start_quiz"
-                            ? "Start Assessment"
+                              ? "Assessment Completed"
+                              : lesson?.lesson_quiz_status === "retake"
+                                ? "Retake Assessment "
+                                : lesson?.lesson_quiz_status === "in_process"
+                                  ? "In Progress"
+                                  : lesson?.lesson_quiz_status == "start_quiz"
+                                    ? "Start Assessment"
 
-                                .replace(/_/g, " ")
+                                      .replace(/_/g, " ")
 
-                                .replace(/\b\w/g, (char) => char.toUpperCase())
-                            : "Start Assessment"}
-                                             
+                                      .replace(/\b\w/g, (char) => char.toUpperCase())
+                                    : "Start Assessment"}
+
                         </button>
-                                     
+
                       </div>
                     )}
                   </div>
