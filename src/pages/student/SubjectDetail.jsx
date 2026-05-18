@@ -441,7 +441,7 @@ const SubjectDetail = () => {
                                             ? "retake"
                                             : ""
                                         : checkRetake === "retake"
-                                          ? status === "in_process"
+                                          ? status === "in_process" ||  status === "retake"
                                             ? "retake"
                                             : ""
                                           : ""

@@ -16,6 +16,8 @@ const BaselineAssessment = () => {
   const location = useLocation();
   const { subject_id } = useParams();
   const quizStatus = location.state?.quizStatus;
+
+  console.log(quizStatus,"test data **")
   //   // 1. Dynamic IDs and Titles
   const lessonId = location.state?.lessonId;
   const subjectId = location.state?.subjectId || subject_id;
