@@ -49,27 +49,22 @@ const hasFetched = useRef(false);
 //     })
 //   );
 // }, []);
-const apiCalledRef = useRef(false);
+
+const fetchedRef = useRef(false);
 
 useEffect(() => {
-  if (
-    apiCalledRef.current ||
-    !subject_id ||
-    !lessonId
-  ) {
-    return;
-  }
+  if (fetchedRef.current) return;
 
-  apiCalledRef.current = true;
+  fetchedRef.current = true;
 
   dispatch(
     getAllQuestion({
-      subject_id,
+      subject_id: subject_id,
       lesson_id: lessonId,
       quiz_status: quizStatus,
     })
   );
-}, [subject_id, lessonId, quizStatus]);
+}, [dispatch, subject_id, lessonId, quizStatus]);
 
   // Initialize answers when questions are loaded
   useEffect(() => {
