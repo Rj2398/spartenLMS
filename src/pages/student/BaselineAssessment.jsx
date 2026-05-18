@@ -44,7 +44,7 @@ const BaselineAssessment = () => {
         quiz_status: quizStatus,
       })
     );
-  }, [dispatch]); // Added dependencies to fix logic mismatch
+  }, []); // Added dependencies to fix logic mismatch
 
   // Initialize answers when questions are loaded
   useEffect(() => {
@@ -262,7 +262,7 @@ const BaselineAssessment = () => {
             <div className="delete-pop-wrap">
               <div className="delete-pop-inner text-center ">
                 <p style={{ fontWeight: "700" }}>
-                  Are you sure you want to quit this quiz?
+                  Are you sure you want to quit this assessment?
                 </p>
               </div>
               <div className="delete-pop-btn d-flex justify-content-end gap-3 mt-3 pe-3">
@@ -285,7 +285,9 @@ const BaselineAssessment = () => {
                   style={{ border: "none",padding: "9px 25px",
                         background: "linear-gradient(92.08deg, #4126a8 12.97%, #1b0866 103.35%)"
                       }}
-                  onClick={() => navigate(`/student/subject-detail?=${subject_id||1}`)}
+                 onClick={() =>
+                        navigate(`/student/subject-detail?subjectId=${subject_id || 1}`)
+                      }
                 >
                   Yes, sure
                 </Button>

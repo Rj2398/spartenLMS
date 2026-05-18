@@ -304,6 +304,25 @@ const SubjectDetail = () => {
                     >
                       <Link
                         to="#"
+                        // onClick={(e) => {
+                        //   e.preventDefault();
+
+                        //   const isFirst = index === 0;
+                        //   const isPrevDone =
+                        //     lessonMap[index - 1]?.lesson_status === "completed";
+                        //   const isCurrentDone =
+                        //     lesson?.lesson_status === "completed";
+
+                        //   // Click tabhi kaam karega jab logic true ho
+                        //   if (isFirst || isPrevDone || isCurrentDone) {
+                        //     window.open(
+                        //       API_BASE_URL + lesson?.lesson_pdf,
+                        //       "_blank"
+                        //     );
+                        //     handleCompleteLesson(lesson?.id);
+                        //   }
+                        // }}
+
                         onClick={(e) => {
                           e.preventDefault();
 
@@ -313,16 +332,18 @@ const SubjectDetail = () => {
                           const isCurrentDone =
                             lesson?.lesson_status === "completed";
 
-                          // Click tabhi kaam karega jab logic true ho
                           if (isFirst || isPrevDone || isCurrentDone) {
-                            window.open(
-                              API_BASE_URL + lesson?.lesson_pdf,
-                              "_blank"
-                            );
+
+                            navigate("/student/pdf-viewer", {
+                              state: {
+                                pdf: API_BASE_URL + lesson?.lesson_pdf,
+                              },
+                            });
+
                             handleCompleteLesson(lesson?.id);
                           }
                         }}
-                        style={{
+                                                style={{
                           marginRight: "10px",
 
                           background:
@@ -413,10 +434,11 @@ const SubjectDetail = () => {
                                     lessonId: lesson?.id,
 
                                     quizStatus:
-                                      status === "start_quiz" ||
-                                      status === "in_process"
+                                      status === "start_quiz" || status === "in_process"
                                         ? "start"
-                                        : "retake",
+                                        : status === "retake"
+                                        ? "retake"
+                                        : "",
                                   },
                                 }
                               );
@@ -458,20 +480,20 @@ const SubjectDetail = () => {
                         >
                                            
                           {lesson?.lesson_quiz_status === "locked"
-                            ? "Locked Quiz"
+                            ? "Locked Assessment"
                             : lesson?.lesson_quiz_status === "completed"
-                            ? "Quiz Completed"
+                            ? "Assessment Completed"
                             : lesson?.lesson_quiz_status === "retake"
-                            ? "Retake Quiz"
+                            ? "Retake Assessment "
                             : lesson?.lesson_quiz_status === "in_process"
                             ? "In Progress"
-                            : lesson?.lesson_quiz_status
-                            ? lesson.lesson_quiz_status
+                            : lesson?.lesson_quiz_status=="start_quiz"
+                            ? "Start Assessment"
 
                                 .replace(/_/g, " ")
 
                                 .replace(/\b\w/g, (char) => char.toUpperCase())
-                            : "Start Quiz"}
+                            : "Start Assessment"}
                                              
                         </button>
                                      

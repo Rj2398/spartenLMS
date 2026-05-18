@@ -27,6 +27,7 @@ import NotFound from "../pages/common/NotFound";
 import ProtectedRoute from "./RoleBasedRoute";
 import PaymentSuccess from "../pages/student/PaymentSuccess";
 import PaymentFailed from "../pages/student/PaymentFailed";
+import CreateViewer from "../components/student/CreateViewer";
 const AppRouter = () => (
   <Router>
     <Routes>
@@ -47,6 +48,7 @@ const AppRouter = () => (
 
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/student/payment-cancel" element={<PaymentFailed />} />
+        <Route path="/student/pdf-viewer" element={<CreateViewer/>} />
         <Route element={<StudentLayout />}>
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/profile" element={<StudentProfile />} />
